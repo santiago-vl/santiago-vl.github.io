@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -92,4 +96,137 @@ section {
 
 .badge-wip {
   @apply absolute top-2 right-2 bg-yellow-500 text-black text-xs font-semibold px-2 py-1 rounded;
+}
+
+/* === INVESTMENTS SECTION === */
+
+.investments-table-wrapper {
+  overflow-x: auto;
+  margin: 0;
+}
+
+.investments-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.investments-table thead {
+  border-bottom: 2px solid #505362;
+}
+
+.investments-table th {
+  text-align: left;
+  padding: 12px 16px;
+  color: #F9FAFA;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.investments-table td {
+  padding: 14px 16px;
+  color: #D5D6DD;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #2d2d3e;
+  vertical-align: middle;
+}
+
+.investments-table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.investments-table tbody tr:hover {
+  background-color: rgba(79, 70, 229, 0.05);
+}
+
+.category-color-box {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.dca-badge {
+  display: inline-block;
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #3B82F6;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* === CHARTS GRID === */
+
+.investments-charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+  .investments-charts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .investments-charts-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid #505362;
+  border-radius: 12px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.chart-container:hover {
+  border-color: #6B7280;
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.chart-container.full-width {
+  grid-column: 1 / -1;
+}
+
+.chart-title {
+  color: #F9FAFA;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.chart-container canvas {
+  max-height: 300px;
+}
+
+/* === ANIMACIONES (IntersectionObserver) === */
+
+.investments-table-wrapper,
+.chart-container {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.investments-table-wrapper.animate-in,
+.chart-container.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
