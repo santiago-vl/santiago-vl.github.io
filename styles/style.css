@@ -216,13 +216,18 @@ section {
   max-height: 300px;
 }
 
-/* === ANIMACIONES (IntersectionObserver) === */
+.chart-container.full-width canvas {
+  min-height: 450px;
+  max-height: 600px;
+}
+
+/* === ANIMATIONS (IntersectionObserver) === */
 
 .investments-table-wrapper,
 .chart-container {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .investments-table-wrapper.animate-in,
