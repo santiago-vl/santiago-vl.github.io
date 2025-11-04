@@ -515,9 +515,9 @@
         { symbol: "FINIZENS", sector: "FINIZENS", weight: 0.265 }
       ];
 
-      async function fetchHistoricalData(symbol) {
+      async function fetchHistoricalPrices(symbol) {
         try {
-          // Fetch last 60 months of data
+          // Fetch last 60 months of data (with timestamps)
           const response = await fetch(
             `${FINNHUB_BASE}/stock/candle?symbol=${symbol}&resolution=M&count=60&token=${API_KEY}`
           );
@@ -526,65 +526,87 @@
 
           const data = await response.json();
 
-          if (!data.c || data.c.length < 2) {
+          if (!data.c || data.c.length < 60) {
             throw new Error(`Insufficient data for ${symbol}`);
           }
 
-          return data.c; // Return closing prices array
+          // Return array of prices with timestamps: { price, timestamp }
+          return data.c.map((price, idx) => ({
+            price,
+            timestamp: data.t[idx] // Unix timestamp for each month
+          }));
         } catch (error) {
           console.warn(`Could not fetch ${symbol}, using fallback:`, error);
           return null;
         }
       }
 
-      function calculateCAGR(prices) {
-        if (!prices || prices.length < 2) return null;
+      async function simulateHistoricalPortfolio(initialValue, monthlyContribution) {
+        // Fetch historical prices for all symbols (except FINIZENS which is private fund)
+        const priceHistories = {};
+        const symbols = portfolioMapping.map(m => m.symbol).filter(s => s !== "FINIZENS");
 
-        const startPrice = prices[0];
-        const endPrice = prices[prices.length - 1];
-        const years = prices.length / 12; // Convert months to years
-
-        if (startPrice <= 0) return null;
-
-        const cagr = Math.pow(endPrice / startPrice, 1 / years) - 1;
-        return Math.max(cagr, 0); // Avoid negative returns for this projection
-      }
-
-      async function getCAGRForAsset(symbol) {
-        // Try to fetch real data first
-        const prices = await fetchHistoricalData(symbol);
-
-        if (prices) {
-          const cagr = calculateCAGR(prices);
-          if (cagr !== null) return cagr;
+        for (const symbol of symbols) {
+          const prices = await fetchHistoricalPrices(symbol);
+          if (prices) {
+            priceHistories[symbol] = prices;
+          }
         }
 
-        // Fallback to predefined CAGR
-        return fallbackCAGR[symbol] || 0.10;
-      }
+        // Check if we have enough data
+        if (Object.keys(priceHistories).length === 0) {
+          throw new Error("Could not fetch any historical price data");
+        }
 
-      function projectPortfolioValue(initialValue, monthlyContribution, cagrBySymbol, months) {
-        // Calculate weighted average CAGR
-        let weightedCAGR = 0;
-        portfolioMapping.forEach(({ symbol, weight }) => {
-          const cagr = cagrBySymbol[symbol] || fallbackCAGR[symbol];
-          weightedCAGR += cagr * weight;
+        // Get the shortest history to ensure alignment
+        const minLength = Math.min(...Object.values(priceHistories).map(p => p.length));
+
+        if (minLength < 60) {
+          throw new Error(`Insufficient synchronized data (only ${minLength} months)`);
+        }
+
+        // Initialize portfolio: track units of each asset
+        const units = {};
+        portfolioMapping.forEach(({ symbol }) => {
+          units[symbol] = 0;
         });
 
-        // Convert annual CAGR to monthly rate
-        const monthlyRate = Math.pow(1 + weightedCAGR, 1 / 12) - 1;
+        const portfolioValues = [initialValue];
 
-        // Project portfolio month by month
-        const projectedValues = [initialValue];
-        let totalValue = initialValue;
+        // Simulate month by month
+        for (let monthIdx = 0; monthIdx < minLength; monthIdx++) {
+          // Invest monthly contribution according to weights
+          portfolioMapping.forEach(({ symbol, weight }) => {
+            if (symbol === "FINIZENS") {
+              // For FINIZENS, assume 15% annual growth (private fund with "price" = 100)
+              const monthlyReturn = Math.pow(1 + fallbackCAGR["FINIZENS"], 1/12) - 1;
+              // First, grow existing units
+              units[symbol] = (units[symbol] || 0) * (1 + monthlyReturn);
+              // Then, invest new monthly contribution
+              const finizensAllocation = monthlyContribution * weight;
+              units[symbol] += finizensAllocation / 100;
+            } else if (priceHistories[symbol]) {
+              const currentPrice = priceHistories[symbol][monthIdx].price;
+              const allocation = monthlyContribution * weight;
+              units[symbol] += allocation / currentPrice;
+            }
+          });
 
-        for (let month = 1; month <= months; month++) {
-          // Grow previous value + add monthly contribution
-          totalValue = totalValue * (1 + monthlyRate) + monthlyContribution;
-          projectedValues.push(Math.round(totalValue));
+          // Calculate portfolio value at end of month using actual prices
+          let portfolioValue = 0;
+          portfolioMapping.forEach(({ symbol }) => {
+            if (symbol === "FINIZENS") {
+              portfolioValue += units[symbol] * 100;
+            } else if (priceHistories[symbol]) {
+              const currentPrice = priceHistories[symbol][monthIdx].price;
+              portfolioValue += units[symbol] * currentPrice;
+            }
+          });
+
+          portfolioValues.push(Math.round(portfolioValue));
         }
 
-        return projectedValues;
+        return portfolioValues;
       }
 
       async function initPerformanceProjection() {
@@ -594,23 +616,16 @@
         const totalContributed = initialValue + (monthlyContribution * 60);
 
         try {
-          sourceEl.textContent = "Loading data from Finnhub API...";
+          sourceEl.textContent = "Loading historical data from Finnhub API...";
 
-          // Fetch CAGR for all symbols
-          const cagrBySymbol = {};
+          // Simulate portfolio using real historical prices
+          const portfolioValues = await simulateHistoricalPortfolio(initialValue, monthlyContribution);
 
-          for (const { symbol } of portfolioMapping) {
-            cagrBySymbol[symbol] = await getCAGRForAsset(symbol);
-          }
-
-          // Project 60 months with monthly contributions
-          const projectedValues = projectPortfolioValue(initialValue, monthlyContribution, cagrBySymbol, 60);
-
-          // Render chart
-          initPerformanceChart(projectedValues);
+          // Render chart with actual historical data
+          initPerformanceChart(portfolioValues);
 
           // Update stats
-          const finalValue = projectedValues[projectedValues.length - 1];
+          const finalValue = portfolioValues[portfolioValues.length - 1];
           const totalGain = finalValue - totalContributed;
           const gainPercent = ((totalGain / totalContributed) * 100).toFixed(1);
 
@@ -618,14 +633,24 @@
           document.getElementById("total-return").textContent = `€${totalGain.toLocaleString()}`;
           document.getElementById("annual-avg").textContent = `+${gainPercent}%`;
 
-          sourceEl.textContent = "✓ Data from Finnhub API (2019-2024 historical returns projected)";
+          sourceEl.textContent = "✓ Historical simulation (2019-2024 real market prices from Finnhub API)";
           sourceEl.classList.add("text-green-400");
         } catch (error) {
-          console.error("Performance projection error:", error);
+          console.error("Performance simulation error:", error);
 
-          // Fallback: use default CAGR values
-          const fallbackCAGRBySymbol = { ...fallbackCAGR };
-          const projectedValues = projectPortfolioValue(initialValue, monthlyContribution, fallbackCAGRBySymbol, 60);
+          // Fallback: use constant CAGR projection
+          const weightedCAGR = portfolioMapping.reduce((sum, { symbol, weight }) => {
+            return sum + (fallbackCAGR[symbol] || 0.10) * weight;
+          }, 0);
+
+          const monthlyRate = Math.pow(1 + weightedCAGR, 1 / 12) - 1;
+          const projectedValues = [initialValue];
+          let totalValue = initialValue;
+
+          for (let month = 1; month <= 60; month++) {
+            totalValue = totalValue * (1 + monthlyRate) + monthlyContribution;
+            projectedValues.push(Math.round(totalValue));
+          }
 
           initPerformanceChart(projectedValues);
 
@@ -637,7 +662,7 @@
           document.getElementById("total-return").textContent = `€${totalGain.toLocaleString()}`;
           document.getElementById("annual-avg").textContent = `+${gainPercent}%`;
 
-          sourceEl.textContent = "⚠ Estimated projection (API unavailable, using historical averages)";
+          sourceEl.textContent = "⚠ Estimated projection (using historical CAGR averages)";
           sourceEl.classList.add("text-yellow-600");
         }
       }
