@@ -174,9 +174,9 @@
 
             <!-- Performance Projection Section -->
             <div class="px-4 py-8">
-              <h3 class="text-[#F9FAFA] text-lg sm:text-xl font-bold leading-tight tracking-[-0.015em] mb-3">5-Year Performance Projection</h3>
+              <h3 class="text-[#F9FAFA] text-lg sm:text-xl font-bold leading-tight tracking-[-0.015em] mb-3">Historical Simulation (2019-2024)</h3>
               <p class="text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal mb-6">
-                Projected portfolio growth with €500 initial investment + €500 monthly contributions based on historical returns (2019-2024):
+                Portfolio evolution using real historical market prices (€500 initial + €500 monthly contributions):
               </p>
 
               <div class="performance-chart-container mb-6">
@@ -572,6 +572,7 @@
         });
 
         const portfolioValues = [initialValue];
+        const labels = ["Start"];
 
         // Simulate month by month
         for (let monthIdx = 0; monthIdx < minLength; monthIdx++) {
@@ -604,9 +605,15 @@
           });
 
           portfolioValues.push(Math.round(portfolioValue));
+
+          // Add date label (convert unix timestamp to month/year format)
+          const timestamp = priceHistories[symbols[0]][monthIdx].timestamp;
+          const date = new Date(timestamp * 1000);
+          const monthYear = date.toLocaleDateString('en-US', { year: '2-digit', month: 'short' });
+          labels.push(monthYear);
         }
 
-        return portfolioValues;
+        return { values: portfolioValues, labels };
       }
 
       async function initPerformanceProjection() {
@@ -619,10 +626,11 @@
           sourceEl.textContent = "Loading historical data from Finnhub API...";
 
           // Simulate portfolio using real historical prices
-          const portfolioValues = await simulateHistoricalPortfolio(initialValue, monthlyContribution);
+          const simulation = await simulateHistoricalPortfolio(initialValue, monthlyContribution);
+          const { values: portfolioValues, labels: dateLabels } = simulation;
 
           // Render chart with actual historical data
-          initPerformanceChart(portfolioValues);
+          initPerformanceChart(portfolioValues, dateLabels);
 
           // Update stats
           const finalValue = portfolioValues[portfolioValues.length - 1];
@@ -652,7 +660,12 @@
             projectedValues.push(Math.round(totalValue));
           }
 
-          initPerformanceChart(projectedValues);
+          const fallbackLabels = ["Start"];
+          for (let i = 1; i <= 60; i++) {
+            fallbackLabels.push(`M${i}`);
+          }
+
+          initPerformanceChart(projectedValues, fallbackLabels);
 
           const finalValue = projectedValues[projectedValues.length - 1];
           const totalGain = finalValue - totalContributed;
@@ -667,14 +680,16 @@
         }
       }
 
-      function initPerformanceChart(projectedValues) {
+      function initPerformanceChart(projectedValues, labels) {
         const ctx = document.getElementById("performance-chart").getContext("2d");
-        const months = projectedValues.map((_, i) => i);
+
+        // Use provided labels or generate default month numbers
+        const chartLabels = labels || projectedValues.map((_, i) => i);
 
         new Chart(ctx, {
           type: "line",
           data: {
-            labels: months,
+            labels: chartLabels,
             datasets: [
               {
                 label: "Portfolio Value (€)",
@@ -720,11 +735,16 @@
               x: {
                 title: {
                   display: true,
-                  text: "Months",
+                  text: "Time Period",
                   color: "#D5D6DD",
                 },
                 grid: { color: "#505362", drawBorder: false },
-                ticks: { color: "#D5D6DD" },
+                ticks: {
+                  color: "#D5D6DD",
+                  maxRotation: 45,
+                  minRotation: 0,
+                  maxTicksLimit: 12 // Show max 12 labels to avoid clutter
+                },
               },
               y: {
                 title: {
