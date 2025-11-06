@@ -526,8 +526,9 @@
 
           const data = await response.json();
 
-          if (!data.c || data.c.length < 60) {
-            throw new Error(`Insufficient data for ${symbol}`);
+          // More flexible: require at least 30 months of data
+          if (!data.c || data.c.length < 30) {
+            throw new Error(`Insufficient data for ${symbol} (got ${data.c?.length || 0})`);
           }
 
           // Return array of prices with timestamps: { price, timestamp }
@@ -536,7 +537,7 @@
             timestamp: data.t[idx] // Unix timestamp for each month
           }));
         } catch (error) {
-          console.warn(`Could not fetch ${symbol}, using fallback:`, error);
+          console.warn(`Could not fetch ${symbol}:`, error.message);
           return null;
         }
       }
@@ -561,8 +562,11 @@
         // Get the shortest history to ensure alignment
         const minLength = Math.min(...Object.values(priceHistories).map(p => p.length));
 
-        if (minLength < 60) {
-          throw new Error(`Insufficient synchronized data (only ${minLength} months)`);
+        console.log(`Fetched ${Object.keys(priceHistories).length} symbols with ${minLength} months of data`);
+
+        // Use available data even if less than 60 months (minimum 30 months)
+        if (minLength < 30) {
+          throw new Error(`Insufficient synchronized data (only ${minLength} months, need at least 30)`);
         }
 
         // Initialize portfolio: track units of each asset
@@ -607,7 +611,9 @@
           portfolioValues.push(Math.round(portfolioValue));
 
           // Add date label (convert unix timestamp to month/year format)
-          const timestamp = priceHistories[symbols[0]][monthIdx].timestamp;
+          // Use first available symbol that has data, not symbols[0] which might be undefined
+          const firstAvailableSymbol = Object.keys(priceHistories)[0];
+          const timestamp = priceHistories[firstAvailableSymbol][monthIdx].timestamp;
           const date = new Date(timestamp * 1000);
           const monthYear = date.toLocaleDateString('en-US', { year: '2-digit', month: 'short' });
           labels.push(monthYear);
