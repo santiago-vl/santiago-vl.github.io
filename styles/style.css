@@ -1,13 +1,37 @@
+:root {
+  --color-primary: #00D9FF;
+  --color-primary-light: #00F0FF;
+  --color-accent: #3B82F6;
+  --color-accent-dark: #007AFF;
+  --color-dark: #0F1E3C;
+  --color-navy: #1A2744;
+  --color-light: #F5F7FA;
+  --color-text-primary: #F9FAFA;
+  --color-text-secondary: #D5D6DD;
+  --color-text-muted: #8A92B2;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 20px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 64px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
   margin: 0;
   padding: 0;
-  color: #2d2d2d;
-  background: #fff;
+  color: var(--color-text-primary);
+  background: var(--color-dark);
+  line-height: 1.6;
 }
 
 header {
@@ -112,25 +136,36 @@ section {
 }
 
 .investments-table thead {
-  border-bottom: 2px solid #505362;
+  border-bottom: 2px solid rgba(0, 217, 255, 0.2);
+  background-color: rgba(0, 217, 255, 0.05);
 }
 
 .investments-table th {
   text-align: left;
-  padding: 12px 16px;
+  padding: var(--spacing-md) var(--spacing-lg);
   color: #F9FAFA;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
+.section-light .investments-table th {
+  color: var(--color-dark);
+  background-color: rgba(0, 217, 255, 0.08);
+}
+
 .investments-table td {
-  padding: 14px 16px;
+  padding: var(--spacing-md) var(--spacing-lg);
   color: #D5D6DD;
   font-size: 0.875rem;
-  border-bottom: 1px solid #2d2d3e;
+  border-bottom: 1px solid rgba(80, 83, 98, 0.3);
   vertical-align: middle;
+}
+
+.section-light .investments-table td {
+  color: var(--color-dark);
+  border-bottom-color: rgba(0, 0, 0, 0.1);
 }
 
 .investments-table tbody tr {
@@ -285,10 +320,130 @@ section {
 }
 
 .stat-box {
-  transition: all 0.2s ease;
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, rgba(0, 217, 255, 0.02) 100%);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  transition: all 0.3s ease;
 }
 
 .stat-box:hover {
-  border-color: #6B7280;
-  background-color: rgba(255, 255, 255, 0.04);
+  border-color: rgba(0, 217, 255, 0.4);
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%);
+  box-shadow: 0 8px 32px rgba(0, 217, 255, 0.1);
+  transform: translateY(-4px);
+}
+
+/* === APPLE-INSPIRED SECTION STYLES === */
+
+.section-wrapper {
+  width: 100%;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@media (max-width: 768px) {
+  .section-wrapper {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+}
+
+.section-hero {
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.08) 0%, var(--color-navy) 100%);
+  color: var(--color-text-primary);
+}
+
+.section-light {
+  background: var(--color-light);
+  color: var(--color-dark);
+}
+
+.section-light .chart-container,
+.section-light .investments-table-wrapper {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.section-light .investments-table th {
+  color: var(--color-dark);
+}
+
+.section-light .investments-table td,
+.section-light .chart-title {
+  color: var(--color-dark);
+}
+
+.section-dark {
+  background: linear-gradient(to bottom, var(--color-navy), var(--color-dark));
+  color: var(--color-text-primary);
+}
+
+.section-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: var(--color-text-primary);
+}
+
+.section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title-hero {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  margin: 0 0 var(--spacing-md) 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--spacing-lg) 0;
+  font-weight: 400;
+  max-width: 600px;
+}
+
+.section-light .section-subtitle {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Mejorado: Tipografía de secciones */
+.chart-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+}
+
+.investments-table th {
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+
+/* Cards mejoradas */
+.investments-table-wrapper,
+.chart-container {
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+}
+
+.chart-container {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.chart-container:hover {
+  box-shadow: 0 12px 48px rgba(0, 217, 255, 0.15);
+  border-color: rgba(0, 217, 255, 0.3);
+}
+
+/* Grid responsive mejorado */
+.investments-charts-grid {
+  gap: var(--spacing-xl);
+}
+
+/* Espacios entre secciones */
+.section-wrapper:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
