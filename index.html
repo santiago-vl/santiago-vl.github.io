@@ -715,11 +715,18 @@
 
       function getHistoricalPricesFromData(symbol) {
         // Get prices from HISTORICAL_PRICES constant (Yahoo Finance data, 2019-2025)
+        console.log(`[DEBUG] Buscando precio para símbolo: "${symbol}"`);
         const asset = HISTORICAL_PRICES.find(a => a.symbol === symbol);
-        if (!asset || !asset.values || asset.values.length < 30) {
-          console.warn(`No data for ${symbol}`);
+        if (!asset) {
+          console.warn(`[DEBUG] ✗ No encontrado símbolo "${symbol}" en HISTORICAL_PRICES`);
+          console.log(`[DEBUG] Símbolos disponibles: ${HISTORICAL_PRICES.map(a => a.symbol).join(", ")}`);
           return null;
         }
+        if (!asset.values || asset.values.length < 30) {
+          console.warn(`[DEBUG] ✗ Datos insuficientes para ${symbol}: ${asset.values?.length || 0} trimestres`);
+          return null;
+        }
+        console.log(`[DEBUG] ✓ Encontrado ${symbol}: ${asset.name} con ${asset.values.length} trimestres`);
 
         // Convert quarterly data to monthly format by repeating last known price
         // Since we have quarterly data, we fill months with the last quarter price
@@ -741,8 +748,10 @@
 
       function simulateHistoricalPortfolio(initialValue, monthlyContribution) {
         // Load historical prices from HISTORICAL_PRICES constant (Yahoo Finance, 2019-2025)
+        console.log(`[DEBUG] Iniciando simulación con portfolio mapping:`);
         const priceHistories = {};
         const symbols = portfolioMapping.map(m => m.symbol).filter(s => s !== "FINIZENS");
+        console.log(`[DEBUG] Símbolos buscados: ${symbols.join(", ")}`);
 
         for (const symbol of symbols) {
           const prices = getHistoricalPricesFromData(symbol);
@@ -750,6 +759,8 @@
             priceHistories[symbol] = prices;
           }
         }
+
+        console.log(`[DEBUG] Símbolos con datos cargados: ${Object.keys(priceHistories).join(", ")}`);
 
         // Check if we have enough data
         if (Object.keys(priceHistories).length === 0) {
@@ -759,7 +770,7 @@
         // Get the shortest history to ensure alignment
         const minLength = Math.min(...Object.values(priceHistories).map(p => p.length));
 
-        console.log(`Loaded ${Object.keys(priceHistories).length} symbols with ${minLength} quarters of data`);
+        console.log(`[DEBUG] ✓ Loaded ${Object.keys(priceHistories).length} symbols with ${minLength} quarters of data`);
 
         // Use available data even if less than 60 months (minimum 10 quarters)
         if (minLength < 10) {
@@ -889,7 +900,9 @@
           sourceEl.textContent = "✓ Historical simulation (2019-2025 real market prices from Yahoo Finance)";
           sourceEl.classList.add("text-green-400");
         } catch (error) {
-          console.error("Performance simulation error:", error);
+          console.error(`[DEBUG] ✗ Error en simulación: ${error.message}`);
+          console.error(`[DEBUG] Stack: ${error.stack}`);
+          console.log(`[DEBUG] Usando fallback (CAGR estimados)`);
           useFallbackProjection(sourceEl, initialValue, monthlyContribution, totalContributed);
         }
       }
