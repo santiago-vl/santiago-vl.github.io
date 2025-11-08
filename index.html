@@ -869,15 +869,6 @@
         const monthlyContribution = 500;
         const totalContributed = initialValue + (monthlyContribution * 60);
 
-        // Validate API key is configured
-        if (!API_KEY || API_KEY === "tu_api_key_aqui") {
-          sourceEl.textContent = "⚠️ API key not configured. Edit config.local.js with your Finnhub API key to enable historical data.";
-          sourceEl.classList.add("text-yellow-400");
-          // Use fallback projection
-          useFallbackProjection(sourceEl, initialValue, monthlyContribution, totalContributed);
-          return;
-        }
-
         try {
           sourceEl.textContent = "Loading historical data...";
 
