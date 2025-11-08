@@ -141,22 +141,22 @@
 
             <!-- Charts Grid -->
             <div class="investments-charts-grid px-4 pb-8">
-              <div class="chart-container">
+              <div class="chart-container animated-section">
                 <h3 class="chart-title">By Sector</h3>
                 <canvas id="chart-by-category" aria-label="Distribution of investments by sector"></canvas>
               </div>
-              <div class="chart-container">
+              <div class="chart-container animated-section">
                 <h3 class="chart-title">Assets & Sectors</h3>
                 <canvas id="chart-nested" aria-label="Nested distribution of assets and sectors"></canvas>
               </div>
-              <div class="chart-container full-width">
+              <div class="chart-container animated-section full-width">
                 <h3 class="chart-title">Monthly DCA Contributions by Asset</h3>
                 <canvas id="chart-horizontal-bar" aria-label="Portfolio monthly DCA ordered by asset"></canvas>
               </div>
             </div>
 
             <!-- Investments Table -->
-            <div class="investments-table-wrapper px-4 pb-8">
+            <div class="investments-table-wrapper animated-section px-4 pb-8">
               <table class="investments-table" aria-label="Investment portfolio details by asset">
                 <thead>
                   <tr>
@@ -179,7 +179,7 @@
                 Portfolio evolution using real historical market prices (€500 initial + €500 monthly contributions):
               </p>
 
-              <div class="performance-chart-container mb-6">
+              <div class="performance-chart-container animated-section mb-6">
                 <canvas id="performance-chart" aria-label="5-year portfolio performance projection"></canvas>
               </div>
 
@@ -484,7 +484,7 @@
           });
         }, observerOptions);
 
-        document.querySelectorAll(".investments-table-wrapper, .chart-container").forEach((el) => {
+        document.querySelectorAll(".animated-section").forEach((el) => {
           observer.observe(el);
         });
       }
