@@ -722,8 +722,8 @@
           console.log(`[DEBUG] Símbolos disponibles: ${HISTORICAL_PRICES.map(a => a.symbol).join(", ")}`);
           return null;
         }
-        if (!asset.values || asset.values.length < 30) {
-          console.warn(`[DEBUG] ✗ Datos insuficientes para ${symbol}: ${asset.values?.length || 0} trimestres`);
+        if (!asset.values || asset.values.length < 10) {
+          console.warn(`[DEBUG] ✗ Datos insuficientes para ${symbol}: ${asset.values?.length || 0} trimestres (mín. 10)`);
           return null;
         }
         console.log(`[DEBUG] ✓ Encontrado ${symbol}: ${asset.name} con ${asset.values.length} trimestres`);
