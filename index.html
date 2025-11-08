@@ -15,6 +15,7 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="config.local.js" defer></script>
   </head>
   <body class="font-custom">
     <div class="relative flex size-full min-h-screen flex-col bg-[#1C1D22] dark group/design-root overflow-x-hidden">
@@ -490,7 +491,8 @@
       }
 
       // === PERFORMANCE PROJECTION ===
-      const API_KEY = "d456b8hr01qsugt8t9ggd456b8hr01qsugt8t9h0";
+      // Read API key from config.local.js (window.CONFIG.FINNHUB_API_KEY)
+      const API_KEY = window.CONFIG?.FINNHUB_API_KEY || "";
       const FINNHUB_BASE = "https://finnhub.io/api/v1";
 
       // Fallback data: historical CAGR for key assets (2019-2024)
@@ -622,11 +624,54 @@
         return { values: portfolioValues, labels };
       }
 
+      function useFallbackProjection(sourceEl, initialValue, monthlyContribution, totalContributed) {
+        // Fallback: use constant CAGR projection
+        const weightedCAGR = portfolioMapping.reduce((sum, { symbol, weight }) => {
+          return sum + (fallbackCAGR[symbol] || 0.10) * weight;
+        }, 0);
+
+        const monthlyRate = Math.pow(1 + weightedCAGR, 1 / 12) - 1;
+        const projectedValues = [initialValue];
+        let totalValue = initialValue;
+
+        for (let month = 1; month <= 60; month++) {
+          totalValue = totalValue * (1 + monthlyRate) + monthlyContribution;
+          projectedValues.push(Math.round(totalValue));
+        }
+
+        const fallbackLabels = ["Start"];
+        for (let i = 1; i <= 60; i++) {
+          fallbackLabels.push(`M${i}`);
+        }
+
+        initPerformanceChart(projectedValues, fallbackLabels);
+
+        const finalValue = projectedValues[projectedValues.length - 1];
+        const totalGain = finalValue - totalContributed;
+        const gainPercent = ((totalGain / totalContributed) * 100).toFixed(1);
+
+        document.getElementById("projected-value").textContent = `€${finalValue.toLocaleString()}`;
+        document.getElementById("total-return").textContent = `€${totalGain.toLocaleString()}`;
+        document.getElementById("annual-avg").textContent = `+${gainPercent}%`;
+
+        sourceEl.textContent = "⚠ Estimated projection (using historical CAGR averages)";
+        sourceEl.classList.add("text-yellow-600");
+      }
+
       async function initPerformanceProjection() {
         const sourceEl = document.getElementById("data-source");
         const initialValue = 500;
         const monthlyContribution = 500;
         const totalContributed = initialValue + (monthlyContribution * 60);
+
+        // Validate API key is configured
+        if (!API_KEY || API_KEY === "tu_api_key_aqui") {
+          sourceEl.textContent = "⚠️ API key not configured. Edit config.local.js with your Finnhub API key to enable historical data.";
+          sourceEl.classList.add("text-yellow-400");
+          // Use fallback projection
+          useFallbackProjection(sourceEl, initialValue, monthlyContribution, totalContributed);
+          return;
+        }
 
         try {
           sourceEl.textContent = "Loading historical data from Finnhub API...";
@@ -651,38 +696,7 @@
           sourceEl.classList.add("text-green-400");
         } catch (error) {
           console.error("Performance simulation error:", error);
-
-          // Fallback: use constant CAGR projection
-          const weightedCAGR = portfolioMapping.reduce((sum, { symbol, weight }) => {
-            return sum + (fallbackCAGR[symbol] || 0.10) * weight;
-          }, 0);
-
-          const monthlyRate = Math.pow(1 + weightedCAGR, 1 / 12) - 1;
-          const projectedValues = [initialValue];
-          let totalValue = initialValue;
-
-          for (let month = 1; month <= 60; month++) {
-            totalValue = totalValue * (1 + monthlyRate) + monthlyContribution;
-            projectedValues.push(Math.round(totalValue));
-          }
-
-          const fallbackLabels = ["Start"];
-          for (let i = 1; i <= 60; i++) {
-            fallbackLabels.push(`M${i}`);
-          }
-
-          initPerformanceChart(projectedValues, fallbackLabels);
-
-          const finalValue = projectedValues[projectedValues.length - 1];
-          const totalGain = finalValue - totalContributed;
-          const gainPercent = ((totalGain / totalContributed) * 100).toFixed(1);
-
-          document.getElementById("projected-value").textContent = `€${finalValue.toLocaleString()}`;
-          document.getElementById("total-return").textContent = `€${totalGain.toLocaleString()}`;
-          document.getElementById("annual-avg").textContent = `+${gainPercent}%`;
-
-          sourceEl.textContent = "⚠ Estimated projection (using historical CAGR averages)";
-          sourceEl.classList.add("text-yellow-600");
+          useFallbackProjection(sourceEl, initialValue, monthlyContribution, totalContributed);
         }
       }
 

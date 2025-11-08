@@ -1,1 +1,7 @@
 .DS_Store
+.idea
+
+# Local configuration (API keys, secrets)
+config.local.js
+.env.local
+.env*.local
