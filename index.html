@@ -3315,6 +3315,12 @@
         // Use provided labels or generate default month numbers
         const chartLabels = labels || projectedValues.map((_, i) => i);
 
+        // Create gradient for futuristic look
+        const gradientFill = ctx.createLinearGradient(0, 0, 0, 400);
+        gradientFill.addColorStop(0, "rgba(0, 217, 255, 0.3)");
+        gradientFill.addColorStop(0.5, "rgba(0, 217, 255, 0.15)");
+        gradientFill.addColorStop(1, "rgba(0, 217, 255, 0.01)");
+
         new Chart(ctx, {
           type: "line",
           data: {
@@ -3323,39 +3329,64 @@
               {
                 label: "Portfolio Value (€)",
                 data: projectedValues,
-                borderColor: "#3B82F6",
-                backgroundColor: "rgba(59, 130, 246, 0.1)",
-                borderWidth: 3,
+                borderColor: "#00D9FF",
+                backgroundColor: gradientFill,
+                borderWidth: 2.5,
                 fill: true,
-                tension: 0.4,
+                tension: 0.35,
                 pointRadius: 0,
-                pointHoverRadius: 6,
-                pointBackgroundColor: "#3B82F6",
+                pointHoverRadius: 8,
+                pointBackgroundColor: "#00D9FF",
+                pointBorderColor: "#00F0FF",
+                pointBorderWidth: 2,
+                pointShadowColor: "rgba(0, 217, 255, 0.8)",
+                pointShadowBlur: 12,
+                segment: {
+                  borderCapStyle: "round",
+                  borderJoinStyle: "round",
+                },
               },
             ],
           },
           options: {
             responsive: true,
             maintainAspectRatio: true,
+            interaction: {
+              mode: "index",
+              intersect: false,
+            },
             plugins: {
               legend: {
                 display: true,
                 labels: {
-                  color: "#D5D6DD",
-                  font: { family: "'Manrope', sans-serif", size: 12 },
-                  padding: 15,
+                  color: "#A0A9C9",
+                  font: { family: "'Manrope', sans-serif", size: 13, weight: "500" },
+                  padding: 20,
+                  usePointStyle: true,
+                  pointStyle: "circle",
                 },
               },
               tooltip: {
-                backgroundColor: "rgba(0, 0, 0, 0.8)",
-                titleColor: "#F9FAFA",
-                bodyColor: "#D5D6DD",
+                enabled: true,
+                backgroundColor: "rgba(15, 30, 60, 0.95)",
+                titleColor: "#00F0FF",
+                bodyColor: "#E0E7FF",
+                borderColor: "#00D9FF",
+                borderWidth: 1,
+                padding: 12,
+                displayColors: false,
+                bodyFont: { size: 14, weight: "500" },
+                titleFont: { size: 13, weight: "600" },
+                usePointStyle: true,
+                boxPadding: 6,
                 callbacks: {
                   label: (context) => {
-                    return `€${context.parsed.y.toLocaleString()}`;
+                    const value = context.parsed.y;
+                    return `Value: €${value.toLocaleString("es-ES")}`;
                   },
                   title: (context) => {
-                    return `Month ${context[0].label}`;
+                    const label = context[0].label;
+                    return `${label}`;
                   },
                 },
               },
@@ -3365,26 +3396,32 @@
                 title: {
                   display: true,
                   text: "Time Period",
-                  color: "#D5D6DD",
+                  color: "#8A92B2",
+                  font: { size: 12, weight: "500" },
+                  padding: 10,
                 },
-                grid: { color: "#505362", drawBorder: false },
+                grid: { color: "rgba(80, 83, 98, 0.3)", drawBorder: false, lineWidth: 0.5 },
                 ticks: {
-                  color: "#D5D6DD",
+                  color: "#8A92B2",
+                  font: { size: 11 },
                   maxRotation: 45,
                   minRotation: 0,
-                  maxTicksLimit: 12 // Show max 12 labels to avoid clutter
+                  maxTicksLimit: 12,
                 },
               },
               y: {
                 title: {
                   display: true,
                   text: "Portfolio Value (€)",
-                  color: "#D5D6DD",
+                  color: "#8A92B2",
+                  font: { size: 12, weight: "500" },
+                  padding: 10,
                 },
-                grid: { color: "#505362", drawBorder: false },
+                grid: { color: "rgba(80, 83, 98, 0.2)", drawBorder: false, lineWidth: 0.5 },
                 ticks: {
-                  color: "#D5D6DD",
-                  callback: (value) => "€" + value.toLocaleString(),
+                  color: "#8A92B2",
+                  font: { size: 11 },
+                  callback: (value) => "€" + value.toLocaleString("es-ES"),
                 },
               },
             },
