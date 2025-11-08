@@ -2108,117 +2108,6 @@
     ]
   },
   {
-    "name": "Palantir Technologies",
-    "symbol": "PLTR",
-    "values": [
-      {
-        "month": "9",
-        "year": "2020",
-        "price": 9.5
-      },
-      {
-        "month": "12",
-        "year": "2020",
-        "price": 23.55
-      },
-      {
-        "month": "3",
-        "year": "2021",
-        "price": 23.29
-      },
-      {
-        "month": "6",
-        "year": "2021",
-        "price": 26.36
-      },
-      {
-        "month": "9",
-        "year": "2021",
-        "price": 24.04
-      },
-      {
-        "month": "12",
-        "year": "2021",
-        "price": 18.21
-      },
-      {
-        "month": "3",
-        "year": "2022",
-        "price": 13.73
-      },
-      {
-        "month": "6",
-        "year": "2022",
-        "price": 9.07
-      },
-      {
-        "month": "9",
-        "year": "2022",
-        "price": 8.13
-      },
-      {
-        "month": "12",
-        "year": "2022",
-        "price": 6.42
-      },
-      {
-        "month": "3",
-        "year": "2023",
-        "price": 8.45
-      },
-      {
-        "month": "6",
-        "year": "2023",
-        "price": 15.33
-      },
-      {
-        "month": "9",
-        "year": "2023",
-        "price": 16
-      },
-      {
-        "month": "12",
-        "year": "2023",
-        "price": 17.17
-      },
-      {
-        "month": "3",
-        "year": "2024",
-        "price": 23.01
-      },
-      {
-        "month": "6",
-        "year": "2024",
-        "price": 25.33
-      },
-      {
-        "month": "9",
-        "year": "2024",
-        "price": 37.2
-      },
-      {
-        "month": "12",
-        "year": "2024",
-        "price": 75.63
-      },
-      {
-        "month": "3",
-        "year": "2025",
-        "price": 84.4
-      },
-      {
-        "month": "6",
-        "year": "2025",
-        "price": 136.32
-      },
-      {
-        "month": "9",
-        "year": "2025",
-        "price": 182.42
-      }
-    ]
-  },
-  {
     "name": "Intuitive Surgical",
     "symbol": "ISRG",
     "values": [
@@ -3199,7 +3088,6 @@
         "TSLA": 0.25,      // Tesla
         "PANW": 0.20,      // Palo Alto Networks
         "ITA": 0.15,       // Aerospace & Defense ETF
-        "PLTR": 0.18,      // Palantir
         "ISRG": 0.15,      // Intuitive Surgical
         "LLY": 0.25,       // Eli Lilly
         "RMS.PA": 0.15,    // Hermès
@@ -3211,30 +3099,29 @@
       // Portfolio mapping (all 17 assets + S&P 500 benchmark, weights sum to 1.0)
       const portfolioMapping = [
         // AI (8 activos)
-        { symbol: "NVDA", sector: "AI", weight: 0.0903 },
-        { symbol: "AMZN", sector: "AI", weight: 0.0645 },
-        { symbol: "ASML", sector: "AI", weight: 0.071 },
-        { symbol: "MSFT", sector: "AI", weight: 0.0645 },
-        { symbol: "GOOGL", sector: "AI", weight: 0.0258 },
-        { symbol: "META", sector: "AI", weight: 0.0258 },
-        { symbol: "AAPL", sector: "AI", weight: 0.0258 },
-        { symbol: "TSLA", sector: "AI", weight: 0.0258 },
-        // Cybersecurity (3 activos)
-        { symbol: "PANW", sector: "CYBERSECURITY", weight: 0.0258 },
-        { symbol: "ITA", sector: "CYBERSECURITY", weight: 0.0258 },
-        { symbol: "PLTR", sector: "CYBERSECURITY", weight: 0.0258 },
+        { symbol: "NVDA", sector: "AI", weight: 0.0928 },
+        { symbol: "AMZN", sector: "AI", weight: 0.0662 },
+        { symbol: "ASML", sector: "AI", weight: 0.0729 },
+        { symbol: "MSFT", sector: "AI", weight: 0.0662 },
+        { symbol: "GOOGL", sector: "AI", weight: 0.0265 },
+        { symbol: "META", sector: "AI", weight: 0.0265 },
+        { symbol: "AAPL", sector: "AI", weight: 0.0265 },
+        { symbol: "TSLA", sector: "AI", weight: 0.0265 },
+        // Cybersecurity (2 activos - PLTR removido por falta de datos pre-2020)
+        { symbol: "PANW", sector: "CYBERSECURITY", weight: 0.0265 },
+        { symbol: "ITA", sector: "CYBERSECURITY", weight: 0.0265 },
         // Robotics (1 activo)
-        { symbol: "ISRG", sector: "ROBOTICS", weight: 0.0258 },
+        { symbol: "ISRG", sector: "ROBOTICS", weight: 0.0265 },
         // Pharma (1 activo)
-        { symbol: "LLY", sector: "PHARMA", weight: 0.0258 },
+        { symbol: "LLY", sector: "PHARMA", weight: 0.0265 },
         // Luxury (1 activo)
-        { symbol: "RMS.PA", sector: "LUXURY", weight: 0.0258 },
+        { symbol: "RMS.PA", sector: "LUXURY", weight: 0.0265 },
         // Gold (1 activo)
-        { symbol: "IAU", sector: "GOLD", weight: 0.129 },
+        { symbol: "IAU", sector: "GOLD", weight: 0.1324 },
         // Utilities (1 activo)
-        { symbol: "IBE.MC", sector: "UTILITIES", weight: 0.0645 },
+        { symbol: "IBE.MC", sector: "UTILITIES", weight: 0.0662 },
         // Benchmark (reemplaza FINIZENS)
-        { symbol: "^GSPC", sector: "BENCHMARK", weight: 0.2581 }
+        { symbol: "^GSPC", sector: "BENCHMARK", weight: 0.2649 }
       ];
 
       function getHistoricalPricesFromData(symbol) {
