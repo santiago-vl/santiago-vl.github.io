@@ -5,3 +5,6 @@
 config.local.js
 .env.local
 .env*.local
+
+#Claude
+settings.local.json
