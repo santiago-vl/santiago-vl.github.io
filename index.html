@@ -47,19 +47,30 @@
             </div>
 
             <!-- Navigation Menu -->
-            <nav class="flex gap-6 px-4 py-6 border-b border-[#505362] mb-6 overflow-x-auto">
-              <a href="#about-me" class="text-[#D5D6DD] hover:text-[#F9FAFA] text-sm sm:text-base font-medium transition whitespace-nowrap">About Me</a>
-              <a href="#work-experience" class="text-[#D5D6DD] hover:text-[#F9FAFA] text-sm sm:text-base font-medium transition whitespace-nowrap">Work Experience</a>
-              <a href="#personal-projects" class="text-[#D5D6DD] hover:text-[#F9FAFA] text-sm sm:text-base font-medium transition whitespace-nowrap">Personal Projects</a>
-              <a href="#investments" class="text-[#D5D6DD] hover:text-[#F9FAFA] text-sm sm:text-base font-medium transition whitespace-nowrap">Investments</a>
+            <nav class="flex justify-center gap-8 sm:gap-12 px-4 py-3 border-b border-[#2A3A54] mb-0 overflow-x-auto sticky top-0 bg-[#1C1D22] z-50">
+              <a href="#about-me" class="nav-link text-[#A0A9C9] hover:text-[#00D9FF] text-sm sm:text-base font-medium transition whitespace-nowrap">About Me</a>
+              <a href="#work-experience" class="nav-link text-[#A0A9C9] hover:text-[#00D9FF] text-sm sm:text-base font-medium transition whitespace-nowrap">Work Experience</a>
+              <a href="#personal-projects" class="nav-link text-[#A0A9C9] hover:text-[#00D9FF] text-sm sm:text-base font-medium transition whitespace-nowrap">Personal Projects</a>
+              <a href="#investments" class="nav-link text-[#A0A9C9] hover:text-[#00D9FF] text-sm sm:text-base font-medium transition whitespace-nowrap">Investments</a>
             </nav>
+          </div>
+        </div>
 
-            <h2 id="about-me" class="text-[#F9FAFA] text-xl sm:text-2xl font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">About Me</h2>
+        <!-- About Me Section -->
+        <div class="section-wrapper section-white">
+          <div class="section-content">
+            <h2 id="about-me" class="text-[#F9FAFA] text-xl sm:text-2xl font-bold leading-tight tracking-[-0.015em]">About Me</h2>
             <p class="text-[#F9FAFA] text-sm sm:text-base font-normal leading-normal pb-3 pt-1 px-4">
               I’m a software engineer graduated from the University of A Coruña, with over 8 years of experience. I work at <a href="https://www.inditex.com/itxcomweb/es/es/home" target="_blank" class="underline text-blue-400 hover:text-blue-300 transition">Inditex</a>, where I specialize in designing and building scalable microservices architectures based on Domain-Driven Design (DDD). I’m deeply passionate about clean code, software craftsmanship, and ensuring code quality through SOLID principles and modern engineering practices. In recent years, I’ve developed a strong interest in Artificial Intelligence and its integration into real-world systems. I lead a development team, where I not only oversee technical decisions and project delivery, but also mentor junior and mid-level developers, conduct performance evaluations, and promote best practices in engineering excellence.
             </p>
-            <h2 id="work-experience" class="text-[#F9FAFA] text-xl sm:text-2xl font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Work Experience</h2>
-            <div class="grid grid-cols-[40px_1fr] gap-x-2 px-4">
+          </div>
+        </div>
+
+        <!-- Work Experience Section -->
+        <div class="section-wrapper section-dark">
+          <div class="section-content">
+            <h2 id="work-experience" class="text-[#F9FAFA] text-xl sm:text-2xl font-bold leading-tight tracking-[-0.015em]">Work Experience</h2>
+            <div class="grid grid-cols-[40px_1fr] gap-x-2">
               <div class="flex flex-col items-center gap-1 pt-3">
                 <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-6 diverger-logo"></div>
                 <div class="w-[1.5px] bg-[#505362] h-2 grow"></div>
@@ -95,8 +106,14 @@
                 <p class="text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal">Feb. 2017 - Dec. 2017 · 11 meses</p>
               </div>
             </div>
-            <h2 id="personal-projects" class="text-[#F9FAFA] text-xl sm:text-2xl font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Personal Projects</h2>
-            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-4">
+          </div>
+        </div>
+
+        <!-- Personal Projects Section -->
+        <div class="section-wrapper section-white">
+          <div class="section-content">
+            <h2 id="personal-projects" class="text-[#F9FAFA] text-xl sm:text-2xl font-bold leading-tight tracking-[-0.015em]">Personal Projects</h2>
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
               <div class="flex flex-col gap-3 pb-3">
                 <div class="relative">
                   <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl translAIt-image"></div>
@@ -132,7 +149,10 @@
                 </div>
               </div>
             </div>
-            <!-- Performance Projection Section -->
+          </div>
+        </div>
+
+        <!-- Performance Projection Section -->
             <div class="section-wrapper section-hero">
               <div class="section-content">
                 <h2 class="section-title-hero">Your Portfolio Story</h2>
