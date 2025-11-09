@@ -512,7 +512,8 @@
           });
         }, observerOptions);
 
-        document.querySelectorAll(".animated-section").forEach((el) => {
+        // Observe both animated sections and section wrappers
+        document.querySelectorAll(".animated-section, .section-wrapper").forEach((el) => {
           observer.observe(el);
         });
       }

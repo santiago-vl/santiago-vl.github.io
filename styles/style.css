@@ -338,18 +338,23 @@ section {
 
 .section-wrapper {
   width: 100%;
-  min-height: 90vh;
   padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 5vw, 2.5rem);
   transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.section-wrapper.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
   .section-wrapper {
-    min-height: 80vh;
     padding: clamp(1.5rem, 3vw, 2rem) clamp(1rem, 4vw, 1.5rem);
   }
 }
@@ -403,7 +408,7 @@ section {
 .section-title-hero {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
-  margin: 0 0 clamp(0.75rem, 2vw, 1.25rem) 0;
+  margin: clamp(0.25rem, 1vw, 0.5rem) 0 clamp(0.75rem, 2vw, 1.25rem) 0;
   letter-spacing: -0.02em;
   line-height: 1.1;
   text-align: center;
@@ -454,8 +459,16 @@ section {
 
 /* Grid responsive mejorado */
 .investments-charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: clamp(1.5rem, 3vw, 2.5rem);
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.investments-charts-grid .full-width {
+  grid-column: 1 / -1;
 }
 
 /* Espacios entre secciones */
