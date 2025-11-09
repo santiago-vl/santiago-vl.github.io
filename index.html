@@ -61,7 +61,10 @@
           <div class="section-content">
             <h2 id="about-me" class="text-[#F9FAFA] text-xl sm:text-2xl font-bold leading-tight tracking-[-0.015em]">About Me</h2>
             <p class="text-[#F9FAFA] text-sm sm:text-base font-normal leading-normal pb-3 pt-1 px-4">
-              I’m a software engineer graduated from the University of A Coruña, with over 8 years of experience. I work at <a href="https://www.inditex.com/itxcomweb/es/es/home" target="_blank" class="underline text-blue-400 hover:text-blue-300 transition">Inditex</a>, where I specialize in designing and building scalable microservices architectures based on Domain-Driven Design (DDD). I’m deeply passionate about clean code, software craftsmanship, and ensuring code quality through SOLID principles and modern engineering practices. In recent years, I’ve developed a strong interest in Artificial Intelligence and its integration into real-world systems. I lead a development team, where I not only oversee technical decisions and project delivery, but also mentor junior and mid-level developers, conduct performance evaluations, and promote best practices in engineering excellence.
+              I'm a software engineer graduated from the University of A Coruña, with over 8 years of experience. I work at <a href="https://www.inditex.com/itxcomweb/es/es/home" target="_blank" class="underline text-blue-400 hover:text-blue-300 transition">Inditex</a>, where I specialize in designing and building scalable microservices architectures based on Domain-Driven Design (DDD). I'm deeply passionate about clean code, software craftsmanship, and ensuring code quality through SOLID principles and modern engineering practices. In recent years, I've developed a strong interest in Artificial Intelligence and its integration into real-world systems. I lead a development team, where I not only oversee technical decisions and project delivery, but also mentor junior and mid-level developers, conduct performance evaluations, and promote best practices in engineering excellence.
+            </p>
+            <p class="text-[#A0A9C9] text-sm sm:text-base font-normal leading-normal italic pt-4 px-4 border-t border-[#D5D6DD] mt-6">
+              I absolutely love the world of investments. It's a passion that drives me to continuously learn, analyze markets, and develop strategies for long-term wealth building.
             </p>
           </div>
         </div>
@@ -152,25 +155,19 @@
           </div>
         </div>
 
-        <!-- Performance Projection Section -->
-            <div class="section-wrapper section-hero">
-              <div class="section-content">
-                <h2 class="section-title-hero">Portfolio Story</h2>
-                <p class="section-subtitle">
-                  I'm passionate about investing and this is my current portfolio, diversified across 16 assets and multiple sectors.
-                </p>
-              </div>
+        <!-- Portfolio Story & Performance Chart Section (Merged) -->
+        <div class="section-wrapper section-hero-dark">
+          <div class="section-content">
+            <h2 class="section-title-hero">Portfolio Story</h2>
+            <p class="section-subtitle">
+              I'm passionate about investing and this is my current portfolio, diversified across 16 assets and multiple sectors.
+            </p>
+            <p class="text-[#D5D6DD] text-sm font-normal leading-relaxed max-w-2xl mb-8">
+              Portfolio evolution using real historical market prices from 2018-2025. €500 initial + €500 monthly contributions using dollar-cost averaging.
+            </p>
+            <div class="performance-chart-container animated-section mb-8">
+              <canvas id="performance-chart" aria-label="Historical portfolio performance 2018-2025"></canvas>
             </div>
-
-            <!-- Performance Chart Section -->
-            <div class="section-wrapper section-dark">
-              <div class="section-content">
-                <p class="text-[#D5D6DD] text-sm font-normal leading-relaxed max-w-2xl mb-6">
-                  Portfolio evolution using real historical market prices from 2018-2025. €500 initial + €500 monthly contributions using dollar-cost averaging.
-                </p>
-                <div class="performance-chart-container animated-section mb-8">
-                  <canvas id="performance-chart" aria-label="Historical portfolio performance 2018-2025"></canvas>
-                </div>
 
                 <div class="performance-stats grid grid-cols-2 sm:grid-cols-4 gap-6 mb-6">
                   <div class="stat-box bg-[#2d2d3e] rounded-lg p-6 border border-[#505362]">
