@@ -331,6 +331,8 @@ section {
 
 .chart-container.full-width {
   grid-column: 1 / -1;
+  background-color: #000000;
+  border-color: rgba(0, 217, 255, 0.2);
 }
 
 .chart-title {
@@ -354,6 +356,51 @@ section {
 .chart-container.full-width canvas {
   min-height: 450px;
   max-height: 600px;
+}
+
+/* Responsiveness improvements for full-width chart */
+@media (max-width: 1024px) {
+  .chart-container.full-width {
+    padding: 20px;
+  }
+
+  .chart-container.full-width canvas {
+    min-height: 380px;
+    max-height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .chart-container.full-width {
+    padding: 16px;
+  }
+
+  .chart-container.full-width canvas {
+    min-height: 320px;
+    max-height: 420px;
+  }
+
+  .chart-title {
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .chart-container.full-width {
+    padding: 12px;
+    min-height: 380px;
+  }
+
+  .chart-container.full-width canvas {
+    min-height: 280px;
+    max-height: 350px;
+  }
+
+  .chart-title {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
 }
 
 /* === ANIMATIONS (IntersectionObserver) === */
