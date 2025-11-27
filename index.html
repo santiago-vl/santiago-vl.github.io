@@ -50,7 +50,7 @@
             <nav class="flex justify-center gap-8 sm:gap-12 px-4 py-3 border-b border-[#2A3A54] mb-0 overflow-x-auto sticky top-0 bg-[#1C1D22] z-50">
               <a href="#about-me" class="nav-link text-[#A0A9C9] hover:text-[#00D9FF] text-sm sm:text-base font-medium transition whitespace-nowrap">About Me</a>
               <a href="#work-experience" class="nav-link text-[#A0A9C9] hover:text-[#00D9FF] text-sm sm:text-base font-medium transition whitespace-nowrap">Work Experience</a>
-              <a href="#personal-projects" class="nav-link text-[#A0A9C9] hover:text-[#00D9FF] text-sm sm:text-base font-medium transition whitespace-nowrap">Personal Projects</a>
+              <a href="#ai-technology-projects" class="nav-link text-[#A0A9C9] hover:text-[#00D9FF] text-sm sm:text-base font-medium transition whitespace-nowrap">AI projects</a>
               <a href="#portfolio-story" class="nav-link text-[#A0A9C9] hover:text-[#00D9FF] text-sm sm:text-base font-medium transition whitespace-nowrap">My Portfolio</a>
             </nav>
           </div>
@@ -64,7 +64,7 @@
               I'm a software engineer graduated from the University of A Coruña, with over 8 years of experience. I work at <a href="https://www.inditex.com/itxcomweb/es/es/home" target="_blank" class="underline text-blue-400 hover:text-blue-300 transition">Inditex</a>, where I specialize in designing and building scalable microservices architectures based on Domain-Driven Design (DDD). I'm deeply passionate about clean code, software craftsmanship, and ensuring code quality through SOLID principles and modern engineering practices. In recent years, I've developed a strong interest in Artificial Intelligence and its integration into real-world systems. I lead a development team, where I not only oversee technical decisions and project delivery, but also mentor junior and mid-level developers, conduct performance evaluations, and promote best practices in engineering excellence.
             </p>
             <p class="text-[#A0A9C9] text-sm sm:text-base font-normal leading-normal italic pt-4 px-4 border-t border-[#D5D6DD] mt-6">
-              I absolutely love the world of investments. It's a passion that drives me to continuously learn, analyze markets, and develop strategies for long-term wealth building.
+              I absolutely love the world of investments. It's a passion that drives me to continuously learn, analyze markets, and develop strategies for long-term wealth building. Check out <a href="#investments" class="underline text-blue-400 hover:text-blue-300 transition">My Portfolio</a>.
             </p>
           </div>
         </div>
@@ -73,58 +73,67 @@
         <div class="section-wrapper section-dark">
           <div class="section-content">
             <h2 id="work-experience" class="text-[#F9FAFA] text-xl sm:text-2xl font-bold leading-tight tracking-[-0.015em]">Work Experience</h2>
-            <div class="grid grid-cols-[50px_1fr] gap-x-3">
-              <div class="flex flex-col items-center gap-1 pt-1">
-                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 diverger-logo"></div>
-                <div class="w-[1.5px] bg-[#505362] h-2 grow"></div>
+            <div class="timeline-container">
+              <div class="work-item">
+                <div class="timeline-logo diverger-logo"></div>
+                <div class="timeline-text">
+                  <p class="text-[#F9FAFA] text-sm sm:text-base font-medium leading-normal">Engineering Team Lead | Senior Software Engineer at Diverger</p>
+                  <p class="work-duration text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal" data-start-date="2024-03">Mar. 2024 - Present · 1 año 2 meses</p>
+                </div>
               </div>
-              <div class="flex flex-1 flex-col py-2">
-                <p class="text-[#F9FAFA] text-sm sm:text-base font-medium leading-normal">Engineering Team Lead | Senior Software Engineer at Diverger</p>
-                <p class="text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal">Mar. 2024 - Present · 1 año 2 meses</p>
+
+              <div class="work-item">
+                <div class="timeline-logo inditex-logo"></div>
+                <div class="timeline-text">
+                  <p class="text-[#F9FAFA] text-sm sm:text-base font-medium leading-normal">Software Engineer at Inditex</p>
+                  <p class="work-duration text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal" data-start-date="2019-01">Jan. 2019 - Present · 6 años 4 meses</p>
+                </div>
               </div>
-              <div class="flex flex-col items-center gap-1">
-                <div class="w-[1.5px] bg-[#505362] h-2"></div>
-                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 inditex-logo"></div>
-                <div class="w-[1.5px] bg-[#505362] h-2 grow"></div>
+
+              <div class="work-item">
+                <div class="timeline-logo trileuco-logo"></div>
+                <div class="timeline-text">
+                  <p class="text-[#F9FAFA] text-sm sm:text-base font-medium leading-normal">Software Engineer at Trileuco Solutions</p>
+                  <p class="text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal">Apr. 2018 - Mar. 2024 · 6 años</p>
+                </div>
               </div>
-              <div class="flex flex-1 flex-col py-2">
-                <p class="text-[#F9FAFA] text-sm sm:text-base font-medium leading-normal">Software Engineer at Inditex</p>
-                <p class="text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal">Jan. 2019 - Present · 6 años 4 meses</p>
-              </div>
-              <div class="flex flex-col items-center gap-1">
-                <div class="w-[1.5px] bg-[#505362] h-2"></div>
-                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 trileuco-logo"></div>
-                <div class="w-[1.5px] bg-[#505362] h-2 grow"></div>
-              </div>
-              <div class="flex flex-1 flex-col py-2">
-                <p class="text-[#F9FAFA] text-sm sm:text-base font-medium leading-normal">Software Engineer at Trileuco Solutions</p>
-                <p class="text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal">Apr. 2018 - Mar. 2024 · 6 años</p>
-              </div>
-              <div class="flex flex-col items-center gap-1">
-                <div class="w-[1.5px] bg-[#505362] h-2"></div>
-                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 indra-logo"></div>
-              </div>
-              <div class="flex flex-1 flex-col py-3">
-                <p class="text-[#F9FAFA] text-sm sm:text-base font-medium leading-normal">Software Engineer at Indra</p>
-                <p class="text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal">Feb. 2017 - Dec. 2017 · 11 meses</p>
+
+              <div class="work-item">
+                <div class="timeline-logo indra-logo"></div>
+                <div class="timeline-text">
+                  <p class="text-[#F9FAFA] text-sm sm:text-base font-medium leading-normal">Software Engineer at Indra</p>
+                  <p class="text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal">Feb. 2017 - Dec. 2017 · 11 meses</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Personal Projects Section -->
+        <!-- AI & Technology Projects Section -->
         <div class="section-wrapper section-white">
           <div class="section-content">
-            <h2 id="personal-projects" class="text-[#F9FAFA] text-xl sm:text-2xl font-bold leading-tight tracking-[-0.015em]">Personal Projects</h2>
-            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <h2 id="ai-technology-projects" class="text-[#F9FAFA] text-xl sm:text-2xl font-bold leading-tight tracking-[-0.015em]">AI projects</h2>
+            <div class="projects-carousel">
               <div class="flex flex-col gap-3 pb-3">
                 <div class="relative">
-                  <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl translAIt-image"></div>
+                  <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl midinova-image"></div>
+                  <div class="absolute top-2 right-2 bg-yellow-500 text-black text-xs font-semibold px-2 py-1 rounded">WIP</div>
+                </div>
+                <div>
+                  <p class="text-[#F9FAFA] text-sm sm:text-base font-medium leading-normal">Midinova</p>
+                  <p class="text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal">
+                    AI-powered web platform that automates liquidity allocation into NASDAQ-100 index funds, using macroeconomic indicators and sentiment analysis.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div class="relative">
+                  <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl tuber-ia-image"></div>
                   <div class="absolute top-2 right-2 bg-yellow-500 text-black text-xs font-semibold px-2 py-1 rounded">Upcoming Release</div>
                 </div>
                 <div>
-                  <p class="text-[#F9FAFA] text-sm sm:text-base font-medium leading-normal">TranslAIt</p>
-                  <p class="text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal">A web application that allows users to upload audio files and transcribe them using AI-powered speech recognition.</p>
+                  <p class="text-[#F9FAFA] text-sm sm:text-base font-medium leading-normal">tuber.ia</p>
+                  <p class="text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal">An AI-powered service that transcribes economic YouTube videos and processes them with LLM to extract key insights, automatically publishing them to Telegram.</p>
                 </div>
               </div>
               <div class="flex flex-col gap-3 pb-3">
@@ -141,14 +150,12 @@
               </div>
               <div class="flex flex-col gap-3 pb-3">
                 <div class="relative">
-                  <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl midinova-image"></div>
+                  <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl translAIt-image"></div>
                   <div class="absolute top-2 right-2 bg-yellow-500 text-black text-xs font-semibold px-2 py-1 rounded">WIP</div>
                 </div>
                 <div>
-                  <p class="text-[#F9FAFA] text-sm sm:text-base font-medium leading-normal">Midinova</p>
-                  <p class="text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal">
-                    AI-powered web platform that automates liquidity allocation into NASDAQ-100 index funds, using macroeconomic indicators and sentiment analysis.
-                  </p>
+                  <p class="text-[#F9FAFA] text-sm sm:text-base font-medium leading-normal">TranslAIt</p>
+                  <p class="text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal">A web application that allows users to upload audio files and transcribe them using AI-powered speech recognition.</p>
                 </div>
               </div>
             </div>
@@ -158,12 +165,12 @@
         <!-- Portfolio Story & Performance Chart Section (Merged) -->
         <div class="section-wrapper section-hero-dark" id="portfolio-story">
           <div class="section-content">
-            <h2 class="section-title-hero">Portfolio Story</h2>
+            <h2 class="section-title-hero">My Portfolio</h2>
             <p class="section-subtitle">
               I'm passionate about investing and this is my current portfolio, diversified across 16 assets and multiple sectors.
             </p>
             <p class="text-[#D5D6DD] text-sm font-normal leading-relaxed max-w-2xl mb-8">
-              Portfolio evolution using real historical market prices from 2018-2025. €500 initial + €500 monthly contributions using dollar-cost averaging.
+              Quantitative portfolio analysis backtested with historical market data (2019-2025) from Yahoo Finance. Empirically-optimized asset allocation employing systematic dollar-cost averaging: €500 initial contribution + €500 monthly rebalancing across 16 securities spanning AI, cybersecurity, healthcare, commodities, and benchmark indices.
             </p>
             <div class="performance-chart-container animated-section mb-8">
               <canvas id="performance-chart" aria-label="Historical portfolio performance 2018-2025"></canvas>
@@ -197,42 +204,47 @@
             <!-- Investments Section -->
             <div class="section-wrapper section-light">
               <div class="section-content">
-                <h2 id="investments" class="section-title-hero" style="color: var(--color-dark);">Portfolio Composition</h2>
+                <h2 id="investments" class="section-title-hero" style="color: var(--color-dark);">Portfolio composition</h2>
                 <p class="section-subtitle" style="color: rgba(0, 0, 0, 0.7);">
                   Strategic allocation across multiple asset classes leveraging modern portfolio theory. Empirically optimized diversification across technology, cybersecurity, healthcare, commodities, and benchmark indices to maximize risk-adjusted returns while maintaining disciplined dollar-cost averaging discipline.
                 </p>
 
-                <!-- Charts Grid -->
-                <div class="investments-charts-grid mt-8 mb-8">
-              <div class="chart-container animated-section">
-                <h3 class="chart-title">By Sector</h3>
-                <canvas id="chart-by-category" aria-label="Distribution of investments by sector"></canvas>
-              </div>
-              <div class="chart-container animated-section">
-                <h3 class="chart-title">Assets & Sectors</h3>
-                <canvas id="chart-nested" aria-label="Nested distribution of assets and sectors"></canvas>
-              </div>
-              <div class="chart-container animated-section full-width">
-                <h3 class="chart-title">Monthly DCA Contributions by Asset</h3>
-                <canvas id="chart-horizontal-bar" aria-label="Portfolio monthly DCA ordered by asset"></canvas>
-              </div>
-            </div>
+                <!-- Investment Composition Layout: Table + Charts -->
+                <div class="investments-layout-grid mt-8 mb-8">
+                  <!-- Left Column: Investments Table -->
+                  <div class="investments-table-wrapper animated-section">
+                    <table class="investments-table" aria-label="Investment portfolio details by asset">
+                      <thead>
+                        <tr>
+                          <th>Sector</th>
+                          <th>Asset</th>
+                          <th>%</th>
+                          <th>ISIN</th>
+                        </tr>
+                      </thead>
+                      <tbody id="investments-table-body">
+                        <!-- Generated by JS -->
+                      </tbody>
+                    </table>
+                  </div>
 
-                <!-- Investments Table -->
-                <div class="investments-table-wrapper animated-section">
-                  <table class="investments-table" aria-label="Investment portfolio details by asset">
-                    <thead>
-                      <tr>
-                        <th>Sector</th>
-                        <th>Asset</th>
-                        <th>%</th>
-                        <th>ISIN</th>
-                      </tr>
-                    </thead>
-                    <tbody id="investments-table-body">
-                      <!-- Generated by JS -->
-                    </tbody>
-                  </table>
+                  <!-- Right Column: Charts Grid -->
+                  <div class="charts-right-column">
+                    <div class="chart-container animated-section">
+                      <h3 class="chart-title">By Sector</h3>
+                      <canvas id="chart-by-category" aria-label="Distribution of investments by sector"></canvas>
+                    </div>
+                    <div class="chart-container animated-section">
+                      <h3 class="chart-title">Assets & Sectors</h3>
+                      <canvas id="chart-nested" aria-label="Nested distribution of assets and sectors"></canvas>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Full Width Chart Below -->
+                <div class="chart-container animated-section full-width">
+                  <h3 class="chart-title">Portfolio Weight by Asset</h3>
+                  <canvas id="chart-horizontal-bar" aria-label="Portfolio weight distribution by asset"></canvas>
                 </div>
               </div>
             </div>
@@ -489,7 +501,7 @@
               },
               y: {
                 grid: { display: false, drawBorder: false },
-                ticks: { color: "#D5D6DD", font: { size: 13 } },
+                ticks: { color: "#000000", font: { size: 13, weight: "bold" } },
               },
             },
           },
@@ -3269,6 +3281,73 @@
         return { values: portfolioValues, labels };
       }
 
+      function simulateSPXOnlyPortfolio(initialValue, monthlyContribution) {
+        // Simulate a pure S&P 500 portfolio with the same contribution strategy
+        const priceHistories = {};
+        const spxPrices = getHistoricalPricesFromData("^GSPC");
+
+        if (!spxPrices || spxPrices.length < 10) {
+          throw new Error("SPX data not available for simulation");
+        }
+
+        priceHistories["^GSPC"] = spxPrices;
+        const minLength = spxPrices.length;
+
+        // Initialize portfolio: track units of SPX
+        let units = 0;
+        const portfolioValues = [initialValue];
+        const labels = ["Start"];
+
+        // Simulate quarter by quarter
+        for (let quarterIdx = 0; quarterIdx < minLength; quarterIdx++) {
+          const quarterlyContribution = monthlyContribution * 3;
+          const currentPrice = priceHistories["^GSPC"][quarterIdx].price;
+
+          // Invest quarterly contribution
+          units += quarterlyContribution / currentPrice;
+
+          // Calculate portfolio value at end of quarter
+          const portfolioValue = units * currentPrice;
+          portfolioValues.push(Math.round(portfolioValue));
+
+          // Add date label
+          const dateStr = priceHistories["^GSPC"][quarterIdx].date;
+          labels.push(dateStr);
+        }
+
+        return { values: portfolioValues, labels };
+      }
+
+      function simulateGoldPortfolio(initialValue, monthlyContribution) {
+        // Simulate a pure Gold (IAU) portfolio with the same contribution strategy
+        const goldPrices = getHistoricalPricesFromData("IAU");
+
+        if (!goldPrices || goldPrices.length < 10) {
+          throw new Error("Gold (IAU) data not available for simulation");
+        }
+
+        const minLength = goldPrices.length;
+
+        // Initialize portfolio: track units of Gold
+        let units = 0;
+        const portfolioValues = [initialValue];
+
+        // Simulate quarter by quarter
+        for (let quarterIdx = 0; quarterIdx < minLength; quarterIdx++) {
+          const quarterlyContribution = monthlyContribution * 3;
+          const currentPrice = goldPrices[quarterIdx].price;
+
+          // Invest quarterly contribution
+          units += quarterlyContribution / currentPrice;
+
+          // Calculate portfolio value at end of quarter
+          const portfolioValue = units * currentPrice;
+          portfolioValues.push(Math.round(portfolioValue));
+        }
+
+        return { values: portfolioValues };
+      }
+
       function useFallbackProjection(sourceEl, initialValue, monthlyContribution, totalContributed) {
         // Fallback: use constant CAGR projection
         const weightedCAGR = portfolioMapping.reduce((sum, { symbol, weight }) => {
@@ -3316,8 +3395,26 @@
           const simulation = simulateHistoricalPortfolio(initialValue, monthlyContribution);
           const { values: portfolioValues, labels: dateLabels } = simulation;
 
+          // Simulate SPX benchmark for comparison
+          let spxValues = null;
+          try {
+            const spxSimulation = simulateSPXOnlyPortfolio(initialValue, monthlyContribution);
+            spxValues = spxSimulation.values;
+          } catch (spxError) {
+            console.warn("SPX simulation failed:", spxError.message);
+          }
+
+          // Simulate Gold (IAU) for comparison
+          let goldValues = null;
+          try {
+            const goldSimulation = simulateGoldPortfolio(initialValue, monthlyContribution);
+            goldValues = goldSimulation.values;
+          } catch (goldError) {
+            console.warn("Gold simulation failed:", goldError.message);
+          }
+
           // Render chart with actual historical data
-          initPerformanceChart(portfolioValues, dateLabels);
+          initPerformanceChart(portfolioValues, dateLabels, spxValues, goldValues);
 
           // Update stats
           const finalValue = portfolioValues[portfolioValues.length - 1];
@@ -3338,44 +3435,103 @@
         }
       }
 
-      function initPerformanceChart(projectedValues, labels) {
+      function initPerformanceChart(projectedValues, labels, spxValues, goldValues) {
         const ctx = document.getElementById("performance-chart").getContext("2d");
 
         // Use provided labels or generate default month numbers
         const chartLabels = labels || projectedValues.map((_, i) => i);
 
-        // Create gradient for futuristic look
+        // Create gradient for portfolio (cyan)
         const gradientFill = ctx.createLinearGradient(0, 0, 0, 400);
         gradientFill.addColorStop(0, "rgba(0, 217, 255, 0.3)");
         gradientFill.addColorStop(0.5, "rgba(0, 217, 255, 0.15)");
         gradientFill.addColorStop(1, "rgba(0, 217, 255, 0.01)");
 
+        // Create gradient for SPX benchmark (red)
+        const spxGradientFill = ctx.createLinearGradient(0, 0, 0, 400);
+        spxGradientFill.addColorStop(0, "rgba(255, 87, 87, 0.2)");
+        spxGradientFill.addColorStop(0.5, "rgba(255, 87, 87, 0.1)");
+        spxGradientFill.addColorStop(1, "rgba(255, 87, 87, 0.01)");
+
+        // Create gradient for Gold (amber)
+        const goldGradientFill = ctx.createLinearGradient(0, 0, 0, 400);
+        goldGradientFill.addColorStop(0, "rgba(245, 158, 11, 0.2)");
+        goldGradientFill.addColorStop(0.5, "rgba(245, 158, 11, 0.1)");
+        goldGradientFill.addColorStop(1, "rgba(245, 158, 11, 0.01)");
+
+        // Build datasets array
+        const datasets = [
+          {
+            label: "Portfolio Value (€)",
+            data: projectedValues,
+            borderColor: "#00D9FF",
+            backgroundColor: gradientFill,
+            borderWidth: 2.5,
+            fill: true,
+            tension: 0.35,
+            pointRadius: 0,
+            pointHoverRadius: 8,
+            pointBackgroundColor: "#00D9FF",
+            pointBorderColor: "#00F0FF",
+            pointBorderWidth: 2,
+            pointShadowColor: "rgba(0, 217, 255, 0.8)",
+            pointShadowBlur: 12,
+            segment: {
+              borderCapStyle: "round",
+              borderJoinStyle: "round",
+            },
+          },
+        ];
+
+        // Add SPX benchmark if available
+        if (spxValues && spxValues.length > 0) {
+          datasets.push({
+            label: "S&P 500 Benchmark (€)",
+            data: spxValues,
+            borderColor: "#FF5757",
+            backgroundColor: spxGradientFill,
+            borderWidth: 2,
+            fill: true,
+            tension: 0.35,
+            pointRadius: 0,
+            pointHoverRadius: 8,
+            pointBackgroundColor: "#FF5757",
+            pointBorderColor: "#FF8787",
+            pointBorderWidth: 2,
+            segment: {
+              borderCapStyle: "round",
+              borderJoinStyle: "round",
+            },
+          });
+        }
+
+        // Add Gold (IAU) if available
+        if (goldValues && goldValues.length > 0) {
+          datasets.push({
+            label: "Gold (iShares IAU) (€)",
+            data: goldValues,
+            borderColor: "#F59E0B",
+            backgroundColor: goldGradientFill,
+            borderWidth: 2,
+            fill: true,
+            tension: 0.35,
+            pointRadius: 0,
+            pointHoverRadius: 8,
+            pointBackgroundColor: "#F59E0B",
+            pointBorderColor: "#FBBF24",
+            pointBorderWidth: 2,
+            segment: {
+              borderCapStyle: "round",
+              borderJoinStyle: "round",
+            },
+          });
+        }
+
         new Chart(ctx, {
           type: "line",
           data: {
             labels: chartLabels,
-            datasets: [
-              {
-                label: "Portfolio Value (€)",
-                data: projectedValues,
-                borderColor: "#00D9FF",
-                backgroundColor: gradientFill,
-                borderWidth: 2.5,
-                fill: true,
-                tension: 0.35,
-                pointRadius: 0,
-                pointHoverRadius: 8,
-                pointBackgroundColor: "#00D9FF",
-                pointBorderColor: "#00F0FF",
-                pointBorderWidth: 2,
-                pointShadowColor: "rgba(0, 217, 255, 0.8)",
-                pointShadowBlur: 12,
-                segment: {
-                  borderCapStyle: "round",
-                  borderJoinStyle: "round",
-                },
-              },
-            ],
+            datasets: datasets,
           },
           options: {
             responsive: true,
@@ -3458,8 +3614,49 @@
         });
       }
 
+      // === CALCULATE WORK DURATION DYNAMICALLY ===
+      function calculateWorkDuration(startDateStr) {
+        // Parse date string "YYYY-MM" format
+        const [year, month] = startDateStr.split("-").map(Number);
+        const startDate = new Date(year, month - 1, 1);
+
+        const today = new Date();
+        const endYear = today.getFullYear();
+        const endMonth = today.getMonth() + 1;
+
+        let years = endYear - year;
+        let months = endMonth - month;
+
+        if (months < 0) {
+          years--;
+          months += 12;
+        }
+
+        // Format month names
+        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        const startMonthName = monthNames[month - 1];
+
+        // Build duration string
+        const yearText = years > 0 ? `${years} año${years > 1 ? "s" : ""}` : "";
+        const monthText = months > 0 ? `${months} mes${months > 1 ? "es" : ""}` : "";
+        const durationParts = [yearText, monthText].filter(Boolean).join(" ");
+
+        return `${startMonthName}. ${year} - Present · ${durationParts}`;
+      }
+
+      function initWorkDurations() {
+        const workDurations = document.querySelectorAll(".work-duration");
+        workDurations.forEach(element => {
+          const startDate = element.getAttribute("data-start-date");
+          if (startDate) {
+            element.textContent = calculateWorkDuration(startDate);
+          }
+        });
+      }
+
       // === INICIALIZACIÓN ===
       document.addEventListener("DOMContentLoaded", () => {
+        initWorkDurations();
         renderTable();
         initChartByCategory();
         initChartNested();
