@@ -75,7 +75,7 @@
             <h2 id="work-experience" class="text-[#F9FAFA] text-xl sm:text-2xl font-bold leading-tight tracking-[-0.015em]">Work Experience</h2>
             <div class="timeline-container">
               <div class="work-item">
-                <div class="timeline-logo diverger-logo"></div>
+                <a href="https://diverger.ai/" target="_blank" rel="noopener noreferrer" class="timeline-logo diverger-logo"></a>
                 <div class="timeline-text">
                   <p class="text-[#F9FAFA] text-sm sm:text-base font-medium leading-normal">Engineering Team Lead | Senior Software Engineer at Diverger</p>
                   <p class="work-duration text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal" data-start-date="2024-03">Mar. 2024 - Present · 1 año 2 meses</p>
@@ -83,7 +83,7 @@
               </div>
 
               <div class="work-item">
-                <div class="timeline-logo inditex-logo"></div>
+                <a href="https://www.inditex.com/itxcomweb/es/es/home" target="_blank" rel="noopener noreferrer" class="timeline-logo inditex-logo"></a>
                 <div class="timeline-text">
                   <p class="text-[#F9FAFA] text-sm sm:text-base font-medium leading-normal">Software Engineer at Inditex</p>
                   <p class="work-duration text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal" data-start-date="2019-01">Jan. 2019 - Present · 6 años 4 meses</p>
@@ -91,7 +91,7 @@
               </div>
 
               <div class="work-item">
-                <div class="timeline-logo trileuco-logo"></div>
+                <a href="https://trileucosolutions.com/en/" target="_blank" rel="noopener noreferrer" class="timeline-logo trileuco-logo"></a>
                 <div class="timeline-text">
                   <p class="text-[#F9FAFA] text-sm sm:text-base font-medium leading-normal">Software Engineer at Trileuco Solutions</p>
                   <p class="text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal">Apr. 2018 - Mar. 2024 · 6 años</p>
@@ -99,7 +99,7 @@
               </div>
 
               <div class="work-item">
-                <div class="timeline-logo indra-logo"></div>
+                <a href="https://www.indracompany.com/" target="_blank" rel="noopener noreferrer" class="timeline-logo indra-logo"></a>
                 <div class="timeline-text">
                   <p class="text-[#F9FAFA] text-sm sm:text-base font-medium leading-normal">Software Engineer at Indra</p>
                   <p class="text-[#D5D6DD] text-sm sm:text-base font-normal leading-normal">Feb. 2017 - Dec. 2017 · 11 meses</p>
@@ -527,6 +527,11 @@
 
         // Observe both animated sections and section wrappers
         document.querySelectorAll(".animated-section, .section-wrapper").forEach((el) => {
+          observer.observe(el);
+        });
+
+        // Observe work items for staggered animation
+        document.querySelectorAll(".work-item").forEach((el) => {
           observer.observe(el);
         });
       }
