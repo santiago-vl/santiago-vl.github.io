@@ -1,0 +1,654 @@
+/* === HOBBIES — ULTRA VANGUARDISTA DUAL HERO === */
+
+.hobbies-eyebrow {
+  font-family: 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: #00d9ff;
+  text-transform: lowercase;
+  display: block;
+  text-align: center;
+  margin-bottom: 12px;
+  opacity: 0.95;
+  font-weight: 500;
+}
+
+.hobbies-title {
+  margin-top: 0 !important;
+}
+
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 80px;
+}
+
+.hobby-card {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0a0e1a;
+  cursor: default;
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease;
+  isolation: isolate;
+}
+
+.hobby-card:hover {
+  transform: translateY(-6px) scale(1.005);
+  border-color: rgba(0, 217, 255, 0.35);
+}
+
+.hobby-bg {
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s ease;
+}
+
+.hobby-card:hover .hobby-bg {
+  transform: scale(1.05);
+}
+
+.hobby-bg-surf {
+  background-image: url('/assets/surf.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: saturate(1.1) contrast(1.05);
+}
+
+.hobby-bg-invest {
+  background: linear-gradient(155deg, #0a0e1a 0%, #0e1626 60%, #14213d 100%);
+  display: flex;
+  align-items: flex-end;
+}
+
+.hobby-bg-invest svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hobby-bg-invest::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.hobby-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 14, 26, 0.15) 0%,
+    rgba(10, 14, 26, 0.45) 50%,
+    rgba(10, 14, 26, 0.92) 100%
+  );
+  pointer-events: none;
+}
+
+.hobby-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.hobby-meta {
+  font-family: 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: lowercase;
+}
+
+.hobby-h {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #f9fafa;
+  margin: 0;
+}
+
+.hobby-surf .hobby-h {
+  background: linear-gradient(120deg, #ffffff 0%, #7dd3fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hobby-investing .hobby-h {
+  background: linear-gradient(120deg, #ffffff 0%, #00d9ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hobby-desc {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: rgba(229, 231, 235, 0.85);
+  margin: 0;
+  max-width: 38ch;
+}
+
+@media (max-width: 768px) {
+  .hobbies-grid {
+    grid-template-columns: 1fr;
+    margin-bottom: 60px;
+  }
+  .hobby-card {
+    aspect-ratio: 3 / 4;
+  }
+  .hobby-content {
+    padding: 24px;
+  }
+}
+
+/* === DEEP DIVE — THE LENS + CONVICTION THEMES === */
+
+.hobby-deep-dive {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 50px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.deep-dive-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.deep-dive-title {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: #f9fafa;
+  margin: 6px 0 12px 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.deep-dive-sub {
+  color: #a0a9c9;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* Small note under conviction bars */
+.rp-note {
+  text-align: center;
+  font-size: 0.78rem;
+  color: rgba(160, 169, 201, 0.65);
+  margin: 8px 0 0;
+}
+
+/* === PORTFOLIO SUMMARY === */
+.themes-section {
+  margin-top: 0;
+}
+
+.portfolio-block {
+  max-width: 1000px;
+  margin: 0 auto 72px;
+}
+
+/* Stacked 100% allocation bar */
+.alloc-bar {
+  display: flex;
+  width: 100%;
+  height: 66px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.alloc-seg {
+  flex: 0 0 0%;
+  background: var(--c);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.28);
+  transition:
+    flex-basis 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.section-wrapper.animate-in .alloc-seg {
+  flex-basis: var(--w);
+}
+.alloc-seg:nth-child(1) {
+  transition-delay: 0s;
+}
+.alloc-seg:nth-child(2) {
+  transition-delay: 0.07s;
+}
+.alloc-seg:nth-child(3) {
+  transition-delay: 0.14s;
+}
+.alloc-seg:nth-child(4) {
+  transition-delay: 0.21s;
+}
+.alloc-seg:nth-child(5) {
+  transition-delay: 0.28s;
+}
+.alloc-seg:nth-child(6) {
+  transition-delay: 0.35s;
+}
+
+.alloc-seg b {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.alloc-seg i {
+  font-family: 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
+  font-style: normal;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.alloc-seg:hover {
+  filter: brightness(1.14);
+}
+.alloc-bar:hover .alloc-seg:not(:hover) {
+  opacity: 0.5;
+}
+
+/* === WHERE I'M LEANING — SECTOR BENTO === */
+.sector-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto 18px;
+}
+
+/* AI (first) and Cyber (last) are full-width banners */
+.sector-card.sc-wide {
+  grid-column: span 2;
+}
+
+.sector-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: 'rail body';
+  align-items: center;
+  column-gap: 22px;
+  padding: 22px 24px;
+  border-radius: 18px;
+  background:
+    radial-gradient(
+      130% 130% at 0% 0%,
+      color-mix(in srgb, var(--c) 14%, transparent),
+      transparent 60%
+    ),
+    rgba(255, 255, 255, 0.022);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  overflow: visible;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Wide banner: rail | body | logos all in one row */
+.sector-card.sc-wide {
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: 'rail body logos';
+}
+
+.sector-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--c);
+  opacity: 0.85;
+}
+
+.sector-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--c) 42%, transparent);
+}
+
+/* Left rail — the giant percentage is the anchor */
+.sc-rail {
+  grid-area: rail;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  padding-right: 22px;
+  border-right: 1px solid rgba(255, 255, 255, 0.09);
+  min-width: 108px;
+}
+
+.sc-pct {
+  font-family: 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--c);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+}
+
+.sc-pct small {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-left: 1px;
+  opacity: 0.85;
+}
+
+.sc-badge {
+  font-family: 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+}
+
+.sc-core {
+  color: #7de6ff;
+  background: rgba(0, 217, 255, 0.1);
+  border-color: rgba(0, 217, 255, 0.3);
+}
+
+.sc-tactical {
+  color: #fcd34d;
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.sc-hedge {
+  color: #a0a9c9;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.sc-body {
+  grid-area: body;
+  min-width: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.sc-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f9fafa;
+  margin: 0;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.sc-wide .sc-name {
+  font-size: 1.3rem;
+}
+
+.sc-thesis {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #a8b0c9;
+  margin: 0;
+}
+
+.sc-wide .sc-thesis {
+  font-size: 0.92rem;
+  max-width: 54ch;
+}
+
+.sc-logos {
+  grid-area: logos;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Holding logos — base plate (reused in sector cards) */
+.cv-logo {
+  height: 54px;
+  width: 54px;
+  object-fit: contain;
+  padding: 9px;
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.cv-logo:hover {
+  transform: translateY(-3px) scale(1.07);
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* favicon-based logos: white plate so they read on dark */
+.cv-logo-fav {
+  background: #fff;
+  border-color: rgba(255, 255, 255, 0.15);
+  padding: 7px;
+}
+
+/* Wide banners get slightly larger logos */
+.sc-wide .cv-logo {
+  height: 60px;
+  width: 60px;
+}
+
+/* Logo wrapper + hover tooltip (shows the holding name) */
+.cv-logo-wrap {
+  position: relative;
+  display: inline-flex;
+}
+.cv-logo-wrap::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: calc(100% + 9px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: #0b0d12;
+  color: #f9fafa;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  padding: 5px 9px;
+  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+  z-index: 60;
+}
+.cv-logo-wrap::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #0b0d12;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+  z-index: 60;
+}
+.cv-logo-wrap:hover {
+  z-index: 60;
+}
+.cv-logo-wrap:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.cv-logo-wrap:hover::before {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .sector-grid {
+    grid-template-columns: 1fr;
+  }
+  /* Everything is full width; wide banners stack logos under the body too */
+  .sector-card.sc-wide {
+    grid-column: span 1;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      'rail body'
+      'rail logos';
+  }
+  .sc-wide .cv-logo {
+    height: 54px;
+    width: 54px;
+  }
+}
+
+@media (max-width: 560px) {
+  /* Compact the rail so the body keeps room on phones */
+  .sector-card {
+    column-gap: 16px;
+    padding: 18px;
+  }
+  .sc-rail {
+    min-width: 76px;
+    padding-right: 14px;
+  }
+  .sc-pct {
+    font-size: 2.2rem;
+  }
+  .cv-logo,
+  .sc-wide .cv-logo {
+    height: 48px;
+    width: 48px;
+  }
+  /* Narrow segments can't hold names — keep just the % so nothing clips */
+  .alloc-bar {
+    height: 56px;
+  }
+  .alloc-seg b {
+    display: none;
+  }
+  .alloc-seg i {
+    font-size: 0.68rem;
+  }
+}
+
+/* === COMPANY LOGO CAROUSEL — full color, all the brands === */
+.logo-carousel {
+  margin-top: 36px;
+  padding: 18px 0 8px;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  position: relative;
+}
+
+.logo-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 64px;
+  animation: logo-scroll 60s linear infinite;
+  padding-right: 64px;
+  white-space: nowrap;
+}
+
+@keyframes logo-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-carousel:hover .logo-track {
+  animation-play-state: paused;
+}
+
+.logo-item {
+  height: 56px;
+  width: auto;
+  max-width: 120px;
+  flex-shrink: 0;
+  opacity: 0.85;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    filter 0.3s ease;
+  object-fit: contain;
+}
+
+.logo-item:hover {
+  opacity: 1;
+  transform: scale(1.18);
+  filter: drop-shadow(0 4px 16px rgba(0, 217, 255, 0.35));
+}
+
+@media (max-width: 768px) {
+  .logo-carousel {
+    margin-top: 28px;
+    padding: 24px 0;
+  }
+  .logo-track {
+    gap: 44px;
+    padding-right: 44px;
+  }
+  .logo-item {
+    height: 44px;
+    max-width: 92px;
+  }
+}

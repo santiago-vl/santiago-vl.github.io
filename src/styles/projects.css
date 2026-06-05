@@ -1,0 +1,278 @@
+/* === Opositana card (still CSS-generated, no screenshot yet) === */
+
+.opositana-card {
+  background-image:
+    url('/assets/opositana_logo.svg'),
+    radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.35), transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(37, 99, 235, 0.35), transparent 60%),
+    linear-gradient(135deg, #0f1224 0%, #1a1f3a 100%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:
+    96px auto,
+    cover,
+    cover,
+    cover;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.opositana-card::after {
+  content: 'Opositana';
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #e0d4ff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Project link wrapper (cards are clickable) */
+.project-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  flex-shrink: 0;
+  width: 320px;
+  max-width: 320px;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+  .project-link {
+    width: 380px;
+    max-width: 380px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-link {
+    width: 420px;
+    max-width: 420px;
+  }
+}
+
+/* Lift on hover for clickable project cards */
+.project-link:hover .project-card {
+  transform: translateY(-3px);
+}
+
+.project-link:hover .opositana-card {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* === Project tags overlay (bottom of image) === */
+
+.project-tags-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(10, 14, 26, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #e2e8f0;
+  white-space: nowrap;
+  line-height: 1.4;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+/* AI / LLM tags — cyan accent, bigger, no dot */
+.tag-ai {
+  background: rgba(0, 30, 45, 0.82);
+  border-color: rgba(0, 217, 255, 0.5);
+  color: #7de6ff;
+}
+
+/* Architecture / pattern tags — amber */
+.tag-arch {
+  background: rgba(40, 25, 0, 0.82);
+  border-color: rgba(245, 158, 11, 0.5);
+  color: #fcd34d;
+}
+
+/* Tech-stack tags — neutral */
+.tag-tech {
+  background: rgba(10, 14, 26, 0.78);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #c5cbdc;
+}
+
+.project-link:hover .tag-ai {
+  border-color: rgba(0, 217, 255, 0.7);
+}
+
+.project-link:hover .tag-arch {
+  border-color: rgba(245, 158, 11, 0.7);
+}
+
+/* Visibility tags — public / private — solid pill (same look as Live badge) */
+.tag-public,
+.tag-private {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 9px;
+  border-radius: 4px;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.tag-public {
+  background: #22c55e;
+  color: #052e16;
+}
+
+.tag-private {
+  background: #ef4444;
+  color: #2a0606;
+}
+
+.trileuco-logo {
+  background-image: url('/assets/trileuco_solutions_logo.webp');
+}
+
+/* === AI PROJECTS CAROUSEL === */
+
+.projects-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1rem 0;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.projects-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.projects-carousel::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.projects-carousel::-webkit-scrollbar-thumb {
+  background: #00d9ff;
+  border-radius: 4px;
+}
+
+.projects-carousel::-webkit-scrollbar-thumb:hover {
+  background: #00b8d4;
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 1024px) {
+}
+
+/* === Project card (de-Tailwinded, semantic) === */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.project-card__media {
+  position: relative;
+}
+
+.project-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.project-thumb--photo {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.project-card__badge {
+  position: absolute;
+  top: 0.5rem;
+  z-index: 10;
+}
+
+.project-card__badge--left {
+  left: 0.5rem;
+}
+
+.project-card__status {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 10;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.project-card__status--live {
+  background: #22d3ee;
+}
+
+.project-card__status--upcoming {
+  background: #eab308;
+}
+
+.project-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.project-card__name {
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.project-card__desc {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@media (min-width: 640px) {
+  .project-card__name,
+  .project-card__desc {
+    font-size: 1rem;
+  }
+}

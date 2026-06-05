@@ -1,0 +1,18 @@
+---
+import type { Holding } from '../data/portfolio';
+
+interface Props {
+  holding: Holding;
+}
+
+const { holding } = Astro.props;
+---
+
+<span class="cv-logo-wrap" data-name={holding.name}>
+  <img
+    class:list={['cv-logo', holding.plate && 'cv-logo-fav']}
+    src={holding.icon}
+    alt={holding.name}
+    loading="lazy"
+  />
+</span>

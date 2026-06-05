@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Nav from '../components/Nav.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import About from '../components/About.astro';
+import Work from '../components/Work.astro';
+import Projects from '../components/Projects.astro';
+import Hobbies from '../components/Hobbies.astro';
+---
+
+<BaseLayout>
+  <Header />
+  <Nav />
+
+  <section class="section-wrapper section-white">
+    <div class="section-content">
+      <SectionHeading id="about-me" num="01" text="about" />
+      <About />
+    </div>
+  </section>
+
+  <section class="section-wrapper section-dark">
+    <div class="section-content">
+      <SectionHeading id="work-experience" num="02" text="work experience" />
+      <Work />
+    </div>
+  </section>
+
+  <section class="section-wrapper section-white">
+    <div class="section-content">
+      <SectionHeading id="projects" num="03" text="projects" />
+      <Projects />
+    </div>
+  </section>
+
+  <section id="hobbies" class="section-wrapper section-hero-dark">
+    <div class="section-content">
+      <SectionHeading num="04" text="hobbies" aside="off the keyboard" class="se-hobbies" />
+      <Hobbies />
+    </div>
+  </section>
+</BaseLayout>

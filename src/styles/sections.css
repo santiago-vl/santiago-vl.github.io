@@ -1,0 +1,96 @@
+/* === APPLE-INSPIRED SECTION STYLES === */
+
+.section-wrapper {
+  width: 100%;
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 5vw, 2.5rem);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(40px);
+  scroll-margin-top: 70px;
+}
+
+.section-wrapper.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tighten the gap between the sticky nav (tabs) and the first section's content */
+.site-nav + .section-wrapper {
+  padding-top: clamp(0.75rem, 1.4vw, 1.2rem);
+}
+
+@media (max-width: 768px) {
+  .section-wrapper {
+    padding: clamp(1.5rem, 3vw, 2rem) clamp(1rem, 4vw, 1.5rem);
+  }
+}
+
+.section-hero {
+  background: linear-gradient(to bottom, var(--color-navy), var(--color-dark));
+  color: var(--color-text-primary);
+}
+
+.section-hero-dark {
+  background: linear-gradient(to bottom, var(--color-navy), var(--color-dark));
+  color: var(--color-text-primary);
+}
+
+.section-dark {
+  background: linear-gradient(to bottom, var(--color-navy), var(--color-dark));
+  color: var(--color-text-primary);
+}
+
+.section-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: var(--color-text-primary);
+}
+
+.section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-title-hero {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  margin: clamp(0.25rem, 1vw, 0.5rem) 0 clamp(1.5rem, 3vw, 2.5rem) 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-align: center;
+}
+
+/* Consistent section titles (excludes editorial eyebrow headers) */
+.section-wrapper h2:not(.section-eyebrow) {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  margin: clamp(0.25rem, 1vw, 0.5rem) 0 clamp(1.5rem, 3vw, 2.5rem) 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  color: var(--color-text-secondary);
+  margin: 0 0 clamp(2rem, 4vw, 3rem) 0;
+  font-weight: 400;
+  max-width: 1000px;
+  text-align: center;
+  white-space: normal;
+  line-height: 1.6;
+}
+
+/* Espacios entre secciones */
+.section-wrapper:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}

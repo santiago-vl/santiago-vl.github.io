@@ -1,0 +1,100 @@
+/* ==========================================================================
+   Site header — identity (avatar + name + roles) and social links
+   ========================================================================== */
+
+.site-header {
+  padding: 1rem;
+}
+
+.site-header__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.identity__avatar {
+  flex-shrink: 0;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.identity__name {
+  color: var(--color-text-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.identity__role {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  padding-top: 1rem;
+  color: var(--color-text-primary);
+  font-size: 1.5rem;
+}
+
+.socials a {
+  display: inline-flex;
+  transition: color 0.2s ease;
+}
+
+.socials a:hover {
+  color: #60a5fa;
+}
+
+.socials svg {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+@media (min-width: 640px) {
+  .identity {
+    gap: 1.5rem;
+  }
+
+  .identity__avatar {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .identity__name {
+    font-size: 2.25rem;
+  }
+
+  .identity__role {
+    font-size: 1.125rem;
+  }
+
+  .socials {
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .site-header__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

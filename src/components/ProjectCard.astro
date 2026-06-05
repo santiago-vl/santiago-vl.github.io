@@ -1,0 +1,50 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+
+const Wrapper = project.href ? 'a' : 'div';
+const wrapperProps = project.href
+  ? { href: project.href, target: '_blank', rel: 'noopener noreferrer' }
+  : {};
+
+const visibilityClass = project.visibility === 'Public' ? 'tag-public' : 'tag-private';
+const statusClass =
+  project.status.tone === 'live' ? 'project-card__status--live' : 'project-card__status--upcoming';
+const thumbClass =
+  project.media.kind === 'photo'
+    ? ['project-thumb', 'project-thumb--photo', project.media.class]
+    : ['project-thumb', project.media.class];
+---
+
+<Wrapper class:list={['project-link', !project.href && 'project-link--static']} {...wrapperProps}>
+  <article class="project-card">
+    <div class="project-card__media">
+      <div class:list={thumbClass}></div>
+
+      <span class="project-card__badge project-card__badge--left">
+        <span class:list={['tag', visibilityClass]}>{project.visibility}</span>
+      </span>
+      <span class:list={['project-card__status', statusClass]}>{project.status.label}</span>
+
+      {
+        project.tags.length > 0 && (
+          <div class="project-tags-overlay">
+            {project.tags.map((tag) => (
+              <span class:list={['tag', `tag-${tag.kind}`]}>{tag.label}</span>
+            ))}
+          </div>
+        )
+      }
+    </div>
+
+    <div class="project-card__body">
+      <h3 class="project-card__name">{project.name}</h3>
+      <p class="project-card__desc">{project.description}</p>
+    </div>
+  </article>
+</Wrapper>

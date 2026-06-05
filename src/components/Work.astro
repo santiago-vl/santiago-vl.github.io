@@ -1,0 +1,13 @@
+---
+import { employers, clients } from '../data/experience';
+import WorkCard from './WorkCard.astro';
+---
+
+<div class="work-timeline-h">
+  <div class="track-label-h track-label-emp"><span class="tl-name">Employer</span></div>
+  {employers.map((job) => <WorkCard job={job} track="employer" />)}
+
+  <div class="track-label-h track-label-cli"><span class="tl-name">Client · on-site</span></div>
+  <div class="wh-spacer"></div>
+  {clients.map((job) => <WorkCard job={job} track="client" />)}
+</div>

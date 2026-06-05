@@ -1,0 +1,41 @@
+---
+import type { Sector } from '../data/portfolio';
+import HoldingIcon from './HoldingIcon.astro';
+
+interface Props {
+  sector: Sector;
+}
+
+const { sector } = Astro.props;
+---
+
+<article class:list={['sector-card', sector.feature && 'sc-wide']} style={`--c: ${sector.color};`}>
+  <div class="sc-rail">
+    <span class="sc-pct">{sector.weight}<small>%</small></span>
+    <span class:list={['sc-badge', `sc-${sector.conviction}`]}>{sector.conviction}</span>
+  </div>
+
+  <div class="sc-body">
+    <h4 class="sc-name">{sector.name}</h4>
+    <p class="sc-thesis">{sector.thesis}</p>
+    {
+      !sector.feature && (
+        <div class="sc-logos">
+          {sector.holdings.map((holding) => (
+            <HoldingIcon holding={holding} />
+          ))}
+        </div>
+      )
+    }
+  </div>
+
+  {
+    sector.feature && (
+      <div class="sc-logos">
+        {sector.holdings.map((holding) => (
+          <HoldingIcon holding={holding} />
+        ))}
+      </div>
+    )
+  }
+</article>

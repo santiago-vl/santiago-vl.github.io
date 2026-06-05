@@ -1,10 +1,23 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log*
+
+# environment / local config (API keys, secrets)
+.env
+.env*.local
+config.local.js
+
+# editors / OS
 .DS_Store
 .idea
 
-# Local configuration (API keys, secrets)
-config.local.js
-.env.local
-.env*.local
-
-#Claude
+# Claude
 settings.local.json

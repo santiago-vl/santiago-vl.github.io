@@ -1,0 +1,47 @@
+---
+import { sectors, brands, portfolioCopy } from '../data/portfolio';
+import SectorCard from './SectorCard.astro';
+---
+
+<div class="hobby-deep-dive">
+  <!-- Allocation summary -->
+  <div class="portfolio-block">
+    <div class="deep-dive-header">
+      <span class="hobbies-eyebrow">{portfolioCopy.eyebrow}</span>
+      <h3 class="deep-dive-title">{portfolioCopy.title}</h3>
+      <p class="deep-dive-sub">{portfolioCopy.subtitle}</p>
+    </div>
+
+    <div class="alloc-bar" aria-label="Portfolio allocation by theme">
+      {
+        sectors.map((sector) => (
+          <span
+            class="alloc-seg"
+            style={`--w: ${sector.weight}%; --c: ${sector.color};`}
+            title={`${sector.name} ${sector.weight}%`}
+          >
+            <b>{sector.barLabel}</b>
+            <i>{sector.weight}%</i>
+          </span>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Per-theme breakdown + the brands behind it -->
+  <div class="themes-section">
+    <div class="sector-grid">
+      {sectors.map((sector) => <SectorCard sector={sector} />)}
+    </div>
+
+    <div class="logo-carousel" aria-label="Brands in my portfolio">
+      <div class="logo-track">
+        {brands.map((brand) => <img src={brand.src} alt={brand.alt} class="logo-item" />)}
+        {/* duplicate, hidden from AT, for a seamless marquee loop */}
+        {brands.map((brand) => <img src={brand.src} alt="" class="logo-item" aria-hidden="true" />)}
+      </div>
+    </div>
+
+    <p class="rp-note">{portfolioCopy.note}</p>
+  </div>
+</div>

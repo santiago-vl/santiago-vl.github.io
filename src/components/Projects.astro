@@ -1,0 +1,8 @@
+---
+import { projects } from '../data/projects';
+import ProjectCard from './ProjectCard.astro';
+---
+
+<div class="projects-carousel">
+  {projects.map((project) => <ProjectCard project={project} />)}
+</div>

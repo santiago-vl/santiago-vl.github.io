@@ -1,0 +1,67 @@
+/* === SECTION EYEBROW (editorial header) === */
+.section-eyebrow {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto clamp(1.5rem, 3vw, 2.2rem);
+  font-family: 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  text-align: left;
+  scroll-margin-top: 80px;
+}
+
+.section-eyebrow .se-num {
+  color: #00d9ff;
+  font-weight: 700;
+}
+.section-eyebrow .se-dash {
+  color: rgba(255, 255, 255, 0.25);
+}
+.section-eyebrow .se-text {
+  color: #c5cbdc;
+}
+.section-eyebrow .se-aside {
+  margin-left: auto;
+  color: rgba(138, 146, 178, 0.6);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .section-eyebrow .se-aside {
+    display: none;
+  }
+}
+
+.profile-image {
+  background-image: url('/assets/profile.webp');
+}
+
+.diverger-logo {
+  background-image: url('/assets/diverger_logo.webp');
+}
+
+.inditex-logo {
+  background-image: url('/assets/inditex_logo.webp');
+}
+
+.indra-logo {
+  background-image: url('/assets/indra_logo.webp');
+}
+
+.tuber-ia-image {
+  background-image: url('/assets/tuber-ia.webp');
+}
+
+.intellitrade-image {
+  background-image: url('/assets/midinova_hd.webp');
+}
+
+.corunova-image {
+  background-image: url('/assets/corunova-screenshot.jpg');
+}

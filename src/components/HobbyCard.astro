@@ -1,0 +1,20 @@
+---
+interface Props {
+  variant: string;
+  meta: string;
+  title: string;
+  description: string;
+}
+
+const { variant, meta, title, description } = Astro.props;
+---
+
+<article class:list={['hobby-card', variant]}>
+  <slot name="bg" />
+  <div class="hobby-overlay"></div>
+  <div class="hobby-content">
+    <span class="hobby-meta">{meta}</span>
+    <h3 class="hobby-h">{title}</h3>
+    <p class="hobby-desc">{description}</p>
+  </div>
+</article>

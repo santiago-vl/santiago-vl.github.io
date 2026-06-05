@@ -14,13 +14,13 @@
  * Execute in Claude Code or Node 18+.
  */
 
-const FROM_EPOCH = Math.floor(new Date("2019-01-01T00:00:00Z").getTime() / 1000);
+const FROM_EPOCH = Math.floor(new Date('2019-01-01T00:00:00Z').getTime() / 1000);
 const TO_EPOCH = Math.floor(Date.now() / 1000);
 
 // Fetch monthly data from Yahoo Finance for S&P 500
 async function fetchYahooMonthly(symbol) {
   const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?period1=${FROM_EPOCH}&period2=${TO_EPOCH}&interval=1mo&includeAdjustedClose=true`;
-  const res = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0" } });
+  const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
   if (!res.ok) throw new Error(`${symbol} HTTP ${res.status}`);
   const json = await res.json();
   const r = json?.chart?.result?.[0];
@@ -43,25 +43,27 @@ async function fetchYahooMonthly(symbol) {
     }
   }
   // Ensure chronological order
-  out.sort((a, b) => (a.year + a.month.padStart(2, "0")).localeCompare(b.year + b.month.padStart(2, "0")));
+  out.sort((a, b) =>
+    (a.year + a.month.padStart(2, '0')).localeCompare(b.year + b.month.padStart(2, '0')),
+  );
   return out;
 }
 
 (async () => {
   // Node 18+ has fetch; if not available, try node-fetch
-  if (typeof fetch === "undefined") {
-    global.fetch = (await import("node-fetch")).default;
+  if (typeof fetch === 'undefined') {
+    global.fetch = (await import('node-fetch')).default;
   }
 
   try {
-    const values = await fetchYahooMonthly("^GSPC");
+    const values = await fetchYahooMonthly('^GSPC');
     const result = {
-      name: "S&P 500",
-      symbol: "^GSPC",
-      values: values
+      name: 'S&P 500',
+      symbol: '^GSPC',
+      values: values,
     };
     console.log(JSON.stringify(result, null, 2));
   } catch (error) {
-    console.error("Error fetching S&P 500 data:", error.message);
+    console.error('Error fetching S&P 500 data:', error.message);
   }
 })();
