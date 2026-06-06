@@ -3,8 +3,11 @@
   "configurations": [
     {
       "name": "mypage",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--", "--port", "4173"],
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-lc",
+        "export NVM_DIR=\"$HOME/.nvm\"; [ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\"; nvm use >/dev/null 2>&1 || nvm use 22 >/dev/null 2>&1; exec npm run dev -- --port 4173"
+      ],
       "port": 4173
     }
   ]

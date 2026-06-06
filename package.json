@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "description": "Personal site of Santiago Villaviciosa — Engineering Manager & Senior Software Engineer.",
+  "engines": {
+    "node": ">=18.20.8"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
