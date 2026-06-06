@@ -29,6 +29,22 @@ export interface Project {
 
 export const projects: readonly Project[] = [
   {
+    name: 'Corunova',
+    href: 'https://corunova.vercel.app/',
+    visibility: 'Public',
+    status: { label: 'Live', tone: 'live' },
+    media: { kind: 'photo', class: 'corunova-image' },
+    description:
+      'Open-data wall of every new construction project underway across the 9 ' +
+      'municipalities of the A Coruña metropolitan area. Built on a DDD backend with ' +
+      'scrapers and public API integrations (Eidus, CKAN, PLACSP).',
+    tags: [
+      { label: 'DDD', kind: 'arch' },
+      { label: 'Python', kind: 'tech' },
+      { label: 'Public-data scrapers', kind: 'tech' },
+    ],
+  },
+  {
     name: 'IntelliTrade',
     href: 'https://intellitrade-copilot-web.vercel.app/',
     visibility: 'Public',
@@ -49,6 +65,22 @@ export const projects: readonly Project[] = [
     ],
   },
   {
+    name: 'tuber.ia',
+    visibility: 'Private',
+    status: { label: 'Live', tone: 'live' },
+    media: { kind: 'photo', class: 'tuber-ia-image' },
+    description:
+      'An AI-powered service that transcribes economic YouTube videos and processes them ' +
+      'with LLM to extract key insights, automatically publishing them to Telegram.',
+    tags: [
+      { label: 'Gemini 2.5 Flash', kind: 'ai' },
+      { label: 'Whisper STT', kind: 'ai' },
+      { label: 'Self-hosted Ollama', kind: 'ai' },
+      { label: 'DDD', kind: 'arch' },
+      { label: 'Python', kind: 'tech' },
+    ],
+  },
+  {
     name: 'Opositana',
     href: 'https://opositana-web.vercel.app/dashboard',
     visibility: 'Public',
@@ -63,38 +95,6 @@ export const projects: readonly Project[] = [
       { label: 'AI test generation', kind: 'ai' },
       { label: 'DDD', kind: 'arch' },
       { label: 'Next.js · NestJS', kind: 'tech' },
-    ],
-  },
-  {
-    name: 'Corunova',
-    href: 'https://corunova.vercel.app/',
-    visibility: 'Public',
-    status: { label: 'Live', tone: 'upcoming' },
-    media: { kind: 'photo', class: 'corunova-image' },
-    description:
-      'Open-data wall of every new construction project underway across the 9 ' +
-      'municipalities of the A Coruña metropolitan area. Built on a DDD backend with ' +
-      'scrapers and public API integrations (Eidus, CKAN, PLACSP).',
-    tags: [
-      { label: 'DDD', kind: 'arch' },
-      { label: 'Python', kind: 'tech' },
-      { label: 'Public-data scrapers', kind: 'tech' },
-    ],
-  },
-  {
-    name: 'tuber.ia',
-    visibility: 'Private',
-    status: { label: 'Upcoming Release', tone: 'upcoming' },
-    media: { kind: 'photo', class: 'tuber-ia-image' },
-    description:
-      'An AI-powered service that transcribes economic YouTube videos and processes them ' +
-      'with LLM to extract key insights, automatically publishing them to Telegram.',
-    tags: [
-      { label: 'Gemini 2.5 Flash', kind: 'ai' },
-      { label: 'Whisper STT', kind: 'ai' },
-      { label: 'Self-hosted Ollama', kind: 'ai' },
-      { label: 'DDD', kind: 'arch' },
-      { label: 'Python', kind: 'tech' },
     ],
   },
 ];

@@ -30,8 +30,8 @@ export interface Brand {
 
 export const portfolioCopy = {
   eyebrow: '// portfolio',
-  title: 'What I own',
-  subtitle: 'How my long-term capital is spread across themes.',
+  title: "How I'm positioned",
+  subtitle: 'My long-term capital, spread across high-conviction themes.',
   note:
     'Directional weights, not financial advice. Quality compounders (Hermès, Visa, Apple) ' +
     '& broad index hedges round out the rest.',
