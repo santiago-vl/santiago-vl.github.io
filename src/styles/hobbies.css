@@ -265,12 +265,35 @@
   transition-delay: 0.49s;
 }
 
-.alloc-seg b {
-  font-size: 0.72rem;
-  font-weight: 700;
+.alloc-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.alloc-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
   color: #fff;
-  letter-spacing: -0.01em;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+}
+
+.alloc-key {
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--c);
+}
+
+.alloc-weight {
+  color: rgba(255, 255, 255, 0.65);
+  font-variant-numeric: tabular-nums;
 }
 
 .alloc-seg i {
@@ -577,9 +600,6 @@
 
   .alloc-bar {
     height: 56px;
-  }
-  .alloc-seg b {
-    display: none;
   }
   .alloc-seg i {
     font-size: 0.68rem;
