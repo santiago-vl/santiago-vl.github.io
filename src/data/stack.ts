@@ -28,6 +28,15 @@ export const stackGroups: readonly StackGroup[] = [
   },
   {
     label: 'Engineering · most used',
-    items: ['Java', 'Python', 'Spring Boot', 'DDD', 'MongoDB', 'Kafka', 'Grafana'],
+    items: [
+      'Java',
+      'Python',
+      'Spring Boot',
+      'Microservices architecture',
+      'DDD',
+      'MongoDB',
+      'Kafka',
+      'Grafana',
+    ],
   },
 ];
