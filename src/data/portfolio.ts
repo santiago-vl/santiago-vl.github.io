@@ -72,7 +72,7 @@ export const sectors: readonly Sector[] = [
   {
     name: 'Energy, water & Nuclear',
     barLabel: 'Energy',
-    weight: 12,
+    weight: 10,
     color: '#06B6D4',
     conviction: 'tactical',
     thesis:
@@ -81,7 +81,6 @@ export const sectors: readonly Sector[] = [
       { name: 'Iberdrola', icon: c('iberdrola.svg'), isin: 'ES0144580Y14' },
       { name: 'iShares MSCI World Utilities', icon: c('power.svg'), isin: 'IE000A89Y2G7' },
       { name: 'VanEck Uranium & Nuclear Technologies', icon: c('atom.svg'), isin: 'IE000M7V94E1' },
-      { name: 'Global X Uranium ETF', icon: c('atom.svg'), isin: 'IE000NDWFGA5' },
       { name: 'iShares Global Water', icon: c('water.svg'), isin: 'IE00B1TXK627' },
       { name: 'Willdan Group', icon: c('leaf.svg'), isin: 'US96924N1000' },
     ],
@@ -116,7 +115,7 @@ export const sectors: readonly Sector[] = [
   {
     name: 'Commodities & crypto',
     barLabel: 'Commodities',
-    weight: 7,
+    weight: 9,
     color: '#F59E0B',
     conviction: 'hedge',
     thesis: 'Insurance against monetary debasement and tail risk — asymmetry over yield.',
@@ -124,6 +123,7 @@ export const sectors: readonly Sector[] = [
       { name: 'iShares Physical Gold', icon: c('gold.svg'), isin: 'IE00B4ND3602' },
       { name: 'iShares Physical Silver', icon: c('silver.svg'), isin: 'IE00B4NCWG09' },
       { name: 'Bitcoin', icon: c('bitcoin.svg') },
+      { name: 'Ethereum', icon: c('ethereum.svg') },
     ],
   },
   {
@@ -174,4 +174,5 @@ export const brands: readonly Brand[] = [
   { src: c('lilly.svg'), alt: 'Eli Lilly' },
   { src: c('intuitive.svg'), alt: 'Intuitive Surgical' },
   { src: c('bitcoin.svg'), alt: 'Bitcoin' },
+  { src: c('ethereum.svg'), alt: 'Ethereum' },
 ];
