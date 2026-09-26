@@ -1,9 +1,5 @@
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-/**
- * Build a "Mon. YYYY - Present · N años M meses" label from a `YYYY-MM` start,
- * so ongoing roles stay accurate without manual edits.
- */
 export function formatOngoingDuration(startDate: string, now: Date = new Date()): string {
   const [year, month] = startDate.split('-').map(Number);
   if (!year || !month) return '';

@@ -1,6 +1,5 @@
 export interface StackGroup {
   readonly label: string;
-  /** Cyan "AI" treatment when set. */
   readonly accent?: 'ai';
   readonly items: readonly string[];
 }

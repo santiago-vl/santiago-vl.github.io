@@ -1,5 +1,3 @@
-/* === WORK EXPERIENCE — HORIZONTAL TIMELINE WITH ROW LABELS === */
-
 .work-timeline-h {
   display: grid;
   grid-template-columns: 160px 1fr 1fr 1fr;
@@ -69,7 +67,6 @@
   grid-row: 2;
 }
 
-/* Inditex card — horizontal layout (logo left, content right) */
 .wh-inditex {
   flex-direction: row !important;
   text-align: left !important;
@@ -106,7 +103,6 @@
   border-top: 1px dashed rgba(0, 217, 255, 0.12);
 }
 
-/* Hide old positional classes (kept for backwards-compat) */
 .work-pos-r1c1,
 .work-pos-r1c2,
 .work-pos-client,
@@ -116,7 +112,6 @@
   display: none;
 }
 
-/* Generic card */
 .work-card {
   display: flex;
   flex-direction: column;
@@ -186,25 +181,21 @@
   width: 80%;
 }
 
-/* Client card (Inditex) — spans 2 rows but matches employer card sizing */
 .work-card-client {
   align-self: center;
   justify-content: center;
 }
 
-/* Standalone card (Indra) — no client, slightly muted */
 .work-card-standalone {
   opacity: 0.85;
 }
 
-/* Connector column — pure spacing, no decoration (relies on layout for the relationship) */
 .work-connector {
   position: relative;
   height: 100%;
   min-height: 1px;
 }
 
-/* Tablet: 2 employer cards per row, label still on left */
 @media (max-width: 900px) {
   .work-timeline-h {
     grid-template-columns: 120px 1fr 1fr;
@@ -239,7 +230,6 @@
   }
 }
 
-/* Mobile: stack everything vertically, label on top of each row */
 @media (max-width: 640px) {
   .work-timeline-h {
     grid-template-columns: 1fr;

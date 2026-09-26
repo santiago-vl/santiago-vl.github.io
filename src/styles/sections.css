@@ -1,5 +1,3 @@
-/* === APPLE-INSPIRED SECTION STYLES === */
-
 .section-wrapper {
   width: 100%;
   padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 5vw, 2.5rem);
@@ -18,7 +16,6 @@
   transform: translateY(0);
 }
 
-/* Tighten the gap between the sticky nav (tabs) and the first section's content */
 .site-nav + .section-wrapper {
   padding-top: clamp(0.75rem, 1.4vw, 1.2rem);
 }
@@ -69,7 +66,6 @@
   text-align: center;
 }
 
-/* Consistent section titles (excludes editorial eyebrow headers) */
 .section-wrapper h2:not(.section-eyebrow) {
   font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 700;
@@ -90,7 +86,6 @@
   line-height: 1.6;
 }
 
-/* Espacios entre secciones */
 .section-wrapper:not(:last-child) {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }

@@ -1,0 +1,7 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><title>Semiconductors</title>
+  <rect x="20" y="20" width="24" height="24" rx="3" fill="none" stroke="#60A5FA" stroke-width="3"/>
+  <rect x="28" y="28" width="8" height="8" rx="1" fill="#60A5FA"/>
+  <g stroke="#60A5FA" stroke-width="3" stroke-linecap="round">
+    <path d="M26 20V12M38 20V12M26 44v8M38 44v8M20 26h-8M20 38h-8M44 26h8M44 38h8"/>
+  </g>
+</svg>

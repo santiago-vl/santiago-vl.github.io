@@ -12,12 +12,15 @@ yarn-error.log*
 
 # environment / local config (API keys, secrets)
 .env
-.env*.local
+.env.*
+!.env.example
 config.local.js
 
 # editors / OS
 .DS_Store
-.idea
+.idea/
+.vscode/*
+!.vscode/extensions.json
 
-# Claude
-settings.local.json
+# Claude Code (local tooling — keep it out of the public repo)
+.claude/

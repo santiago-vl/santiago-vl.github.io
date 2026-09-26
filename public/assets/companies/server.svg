@@ -1,0 +1,11 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><title>Data centers</title>
+  <g fill="none" stroke="#60A5FA" stroke-width="3" stroke-linejoin="round">
+    <rect x="13" y="14" width="38" height="15" rx="2"/>
+    <rect x="13" y="35" width="38" height="15" rx="2"/>
+  </g>
+  <circle cx="21" cy="21.5" r="2.5" fill="#60A5FA"/>
+  <circle cx="21" cy="42.5" r="2.5" fill="#60A5FA"/>
+  <g stroke="#60A5FA" stroke-width="3" stroke-linecap="round">
+    <path d="M33 21.5h11M33 42.5h11"/>
+  </g>
+</svg>

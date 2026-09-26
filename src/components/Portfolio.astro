@@ -4,7 +4,6 @@ import SectorCard from './SectorCard.astro';
 ---
 
 <div class="hobby-deep-dive">
-  <!-- Allocation summary -->
   <div class="portfolio-block">
     <div class="deep-dive-header">
       <span class="hobbies-eyebrow">{portfolioCopy.eyebrow}</span>
@@ -28,7 +27,6 @@ import SectorCard from './SectorCard.astro';
     </div>
   </div>
 
-  <!-- Per-theme breakdown + the brands behind it -->
   <div class="themes-section">
     <div class="sector-grid">
       {sectors.map((sector) => <SectorCard sector={sector} />)}
@@ -37,7 +35,6 @@ import SectorCard from './SectorCard.astro';
     <div class="logo-carousel" aria-label="Brands in my portfolio">
       <div class="logo-track">
         {brands.map((brand) => <img src={brand.src} alt={brand.alt} class="logo-item" />)}
-        {/* duplicate, hidden from AT, for a seamless marquee loop */}
         {brands.map((brand) => <img src={brand.src} alt="" class="logo-item" aria-hidden="true" />)}
       </div>
     </div>

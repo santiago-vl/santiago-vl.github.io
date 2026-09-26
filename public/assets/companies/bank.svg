@@ -1,0 +1,7 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><title>Financials</title>
+  <path d="M32 10 L54 22 L10 22 Z" fill="none" stroke="#94A3B8" stroke-width="3" stroke-linejoin="round"/>
+  <g stroke="#94A3B8" stroke-width="3" stroke-linecap="round">
+    <path d="M18 28v18M28 28v18M36 28v18M46 28v18"/>
+    <line x1="12" y1="52" x2="52" y2="52"/>
+  </g>
+</svg>

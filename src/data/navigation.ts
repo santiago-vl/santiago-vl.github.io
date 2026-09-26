@@ -1,8 +1,6 @@
 export interface NavItem {
-  /** Two-digit ordinal shown before the label. */
   readonly num: string;
   readonly label: string;
-  /** id of the section this item scrolls to. */
   readonly target: string;
 }
 

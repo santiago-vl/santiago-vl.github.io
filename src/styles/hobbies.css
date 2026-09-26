@@ -1,5 +1,3 @@
-/* === HOBBIES — ULTRA VANGUARDISTA DUAL HERO === */
-
 .hobbies-eyebrow {
   font-family: 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
   font-size: 0.95rem;
@@ -165,8 +163,6 @@
   }
 }
 
-/* === DEEP DIVE — THE LENS + CONVICTION THEMES === */
-
 .hobby-deep-dive {
   width: 100%;
   max-width: 1200px;
@@ -197,7 +193,6 @@
   margin: 0 auto;
 }
 
-/* Small note under conviction bars */
 .rp-note {
   text-align: center;
   font-size: 0.78rem;
@@ -205,7 +200,6 @@
   margin: 8px 0 0;
 }
 
-/* === PORTFOLIO SUMMARY === */
 .themes-section {
   margin-top: 0;
 }
@@ -215,7 +209,6 @@
   margin: 0 auto 72px;
 }
 
-/* Stacked 100% allocation bar */
 .alloc-bar {
   display: flex;
   width: 100%;
@@ -265,6 +258,12 @@
 .alloc-seg:nth-child(6) {
   transition-delay: 0.35s;
 }
+.alloc-seg:nth-child(7) {
+  transition-delay: 0.42s;
+}
+.alloc-seg:nth-child(8) {
+  transition-delay: 0.49s;
+}
 
 .alloc-seg b {
   font-size: 0.72rem;
@@ -290,7 +289,6 @@
   opacity: 0.5;
 }
 
-/* === WHERE I'M LEANING — SECTOR BENTO === */
 .sector-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -300,7 +298,6 @@
   margin: 0 auto 18px;
 }
 
-/* AI (first) and Cyber (last) are full-width banners */
 .sector-card.sc-wide {
   grid-column: span 2;
 }
@@ -328,7 +325,6 @@
     border-color 0.3s ease;
 }
 
-/* Wide banner: rail | body | logos all in one row */
 .sector-card.sc-wide {
   grid-template-columns: auto 1fr auto;
   grid-template-areas: 'rail body logos';
@@ -351,7 +347,6 @@
   border-color: color-mix(in srgb, var(--c) 42%, transparent);
 }
 
-/* Left rail — the giant percentage is the anchor */
 .sc-rail {
   grid-area: rail;
   align-self: stretch;
@@ -453,7 +448,6 @@
   gap: 10px;
 }
 
-/* Holding logos — base plate (reused in sector cards) */
 .cv-logo {
   height: 54px;
   width: 54px;
@@ -474,28 +468,32 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* favicon-based logos: white plate so they read on dark */
 .cv-logo-fav {
   background: #fff;
   border-color: rgba(255, 255, 255, 0.15);
   padding: 7px;
 }
 
-/* Wide banners get slightly larger logos */
 .sc-wide .cv-logo {
   height: 60px;
   width: 60px;
 }
 
-/* Logo wrapper + hover tooltip (shows the holding name) */
 .cv-logo-wrap {
   position: relative;
   display: inline-flex;
 }
 .cv-logo-wrap::after {
-  content: attr(data-name);
+  content: '';
   position: absolute;
-  bottom: calc(100% + 9px);
+  bottom: 100%;
+  left: -4px;
+  right: -4px;
+  height: 14px;
+}
+.cv-tooltip {
+  position: absolute;
+  bottom: calc(100% + 13px);
   left: 50%;
   transform: translateX(-50%) translateY(4px);
   background: #0b0d12;
@@ -503,8 +501,8 @@
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.01em;
-  white-space: nowrap;
-  padding: 5px 9px;
+  text-align: center;
+  padding: 6px 10px;
   border-radius: 7px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
@@ -514,36 +512,38 @@
     opacity 0.18s ease,
     transform 0.18s ease;
   z-index: 60;
+  user-select: text;
+  cursor: text;
 }
-.cv-logo-wrap::before {
-  content: '';
-  position: absolute;
-  bottom: calc(100% + 4px);
-  left: 50%;
-  transform: translateX(-50%);
-  border: 5px solid transparent;
-  border-top-color: #0b0d12;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.18s ease;
-  z-index: 60;
+.cv-tt-name {
+  display: block;
+  color: #f9fafa;
+}
+.cv-tt-isin {
+  display: block;
+  font-family: 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: #7de6ff;
+  letter-spacing: 0.05em;
+  margin-top: 3px;
+  padding-top: 3px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.cv-logo-wrap:hover .cv-tooltip,
+.cv-tooltip:hover {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
 }
 .cv-logo-wrap:hover {
   z-index: 60;
 }
-.cv-logo-wrap:hover::after {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-.cv-logo-wrap:hover::before {
-  opacity: 1;
-}
-
 @media (max-width: 900px) {
   .sector-grid {
     grid-template-columns: 1fr;
   }
-  /* Everything is full width; wide banners stack logos under the body too */
+
   .sector-card.sc-wide {
     grid-column: span 1;
     grid-template-columns: auto 1fr;
@@ -558,7 +558,6 @@
 }
 
 @media (max-width: 560px) {
-  /* Compact the rail so the body keeps room on phones */
   .sector-card {
     column-gap: 16px;
     padding: 18px;
@@ -575,7 +574,7 @@
     height: 48px;
     width: 48px;
   }
-  /* Narrow segments can't hold names — keep just the % so nothing clips */
+
   .alloc-bar {
     height: 56px;
   }
@@ -587,7 +586,6 @@
   }
 }
 
-/* === COMPANY LOGO CAROUSEL — full color, all the brands === */
 .logo-carousel {
   margin-top: 36px;
   padding: 18px 0 8px;

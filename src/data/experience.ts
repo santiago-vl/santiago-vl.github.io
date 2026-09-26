@@ -2,20 +2,12 @@ export interface Job {
   readonly company: string;
   readonly role: string;
   readonly href: string;
-  /** CSS class that paints the company logo as a background image. */
   readonly logoClass: string;
-  /** Pre-formatted duration shown as-is. */
   readonly duration: string;
-  /**
-   * `YYYY-MM` start date for ongoing roles. When present the duration is
-   * recomputed in the browser so "Present" stays accurate over time.
-   */
   readonly startDate?: string;
-  /** Small caption under the card. */
   readonly subnote?: string;
 }
 
-/** Companies that employed me, oldest to newest. */
 export const employers: readonly Job[] = [
   {
     company: 'Indra',
@@ -41,7 +33,6 @@ export const employers: readonly Job[] = [
   },
 ];
 
-/** On-site client, shared across employers. */
 export const clients: readonly Job[] = [
   {
     company: 'Inditex',

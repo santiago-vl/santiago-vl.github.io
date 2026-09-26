@@ -1,8 +1,3 @@
-/**
- * Sticky nav: scroll-spy active state, a sliding indicator under the active
- * link, and a top progress bar. The page scrolls inside a nested element
- * (not the window), so the scroll container is detected at runtime.
- */
 type Scroller = HTMLElement | Window;
 
 function isScrollable(el: HTMLElement): boolean {
@@ -72,7 +67,6 @@ export function initNav(): void {
     setActive(index);
   }
 
-  // Robust scroll-spy that doesn't rely solely on scroll events.
   const spy = new IntersectionObserver(
     () => {
       pickActive();
@@ -85,7 +79,6 @@ export function initNav(): void {
   );
   sections.forEach((section) => spy.observe(section));
 
-  // Continuous progress: rAF in the foreground, interval as a throttle-proof fallback.
   let lastTop = -1;
   const sync = () => {
     const top = scrollTop();

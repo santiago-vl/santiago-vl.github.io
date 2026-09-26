@@ -8,7 +8,6 @@ interface Props {
 
 const { job, track } = Astro.props;
 
-// Grid placement class, e.g. "diverger-logo" -> "wh-diverger".
 const placement = `wh-${job.logoClass.replace('-logo', '')}`;
 const trackClass = track === 'employer' ? 'work-card-employer' : 'work-card-client';
 ---

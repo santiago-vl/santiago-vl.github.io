@@ -1,0 +1,6 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><title>Electric vehicles</title>
+  <path d="M10 42 L15 30 C16 27 18 26 21 26 L43 26 C46 26 48 27 49 30 L54 42 L54 46 L10 46 Z" fill="none" stroke="#FB923C" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="21" cy="46" r="4.5" fill="none" stroke="#FB923C" stroke-width="3"/>
+  <circle cx="43" cy="46" r="4.5" fill="none" stroke="#FB923C" stroke-width="3"/>
+  <path d="M34 13 L27 24 H32 L30 32 L40 21 H34 Z" fill="#FB923C"/>
+</svg>

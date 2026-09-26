@@ -1,0 +1,8 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><title>Defence technology</title>
+  <circle cx="32" cy="46" r="4" fill="#A78BFA"/>
+  <g fill="none" stroke="#A78BFA" stroke-width="3" stroke-linecap="round">
+    <path d="M32 36 A10 10 0 0 1 42 46"/>
+    <path d="M32 28 A18 18 0 0 1 50 46"/>
+    <path d="M32 20 A26 26 0 0 1 58 46"/>
+  </g>
+</svg>
