@@ -39,7 +39,7 @@ export const projects: readonly Project[] = [
       { label: 'DDD' },
       { label: 'Python' },
       { label: 'Scrapers públicos' },
-      { label: 'Gemini 2.5 Flash', ai: true },
+      { label: 'Gemini 3.5 Flash-Lite', ai: true },
       { label: 'Clasificación LLM', ai: true },
     ],
   },
@@ -53,7 +53,7 @@ export const projects: readonly Project[] = [
       'Transcribe los vídeos de economía de los expertos que sigues y resume qué esperan ' +
       'del mercado. Para escuchar o ver en el mapa.',
     tags: [
-      { label: 'Gemini 2.5 Flash', ai: true },
+      { label: 'Gemini 3.5 Flash-Lite', ai: true },
       { label: 'Whisper STT', ai: true },
       { label: 'Ollama', ai: true },
       { label: 'DDD' },
@@ -84,7 +84,7 @@ export const projects: readonly Project[] = [
       'Compañera con IA para opositores: plan de estudio que se reajusta solo, coaching ' +
       'anti-burnout y avisos de cambios oficiales.',
     tags: [
-      { label: 'Gemini 2.5 Flash', ai: true },
+      { label: 'Gemini 3.5 Flash-Lite', ai: true },
       { label: 'Generación de tests', ai: true },
       { label: 'DDD' },
       { label: 'Next.js · NestJS' },
