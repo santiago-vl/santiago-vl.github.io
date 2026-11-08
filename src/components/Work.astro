@@ -1,13 +1,25 @@
 ---
 import { employers, clients } from '../data/experience';
-import WorkCard from './WorkCard.astro';
+import SectionHead from './SectionHead.astro';
+import JobCard from './JobCard.astro';
 ---
 
-<div class="work-timeline-h">
-  <div class="track-label-h track-label-emp"><span class="tl-name">Employer</span></div>
-  {employers.map((job) => <WorkCard job={job} track="employer" />)}
-
-  <div class="track-label-h track-label-cli"><span class="tl-name">Client · on-site</span></div>
-  <div class="wh-spacer"></div>
-  {clients.map((job) => <WorkCard job={job} track="client" />)}
-</div>
+<section id="work" class="section">
+  <div class="wrap">
+    <SectionHead eyebrow="Trayectoria · 2017 → hoy">Dónde he <em>trabajado</em></SectionHead>
+    <div class="work">
+      <div class="lane">
+        <span class="lane-label mono">Empleador</span>
+        <div class="lane-cards">
+          {employers.map((job) => <JobCard job={job} />)}
+        </div>
+      </div>
+      <div class="lane">
+        <span class="lane-label mono">Cliente · on-site</span>
+        <div class="lane-cards">
+          {clients.map((job) => <JobCard job={job} client />)}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

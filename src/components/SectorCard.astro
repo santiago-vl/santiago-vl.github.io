@@ -1,5 +1,5 @@
 ---
-import type { Sector } from '../data/portfolio';
+import type { Conviction, Sector } from '../data/portfolio';
 import HoldingIcon from './HoldingIcon.astro';
 
 interface Props {
@@ -7,35 +7,26 @@ interface Props {
 }
 
 const { sector } = Astro.props;
+
+const convictionLabel: Record<Conviction, string> = {
+  core: 'Núcleo',
+  tactical: 'Táctico',
+  hedge: 'Cobertura',
+};
 ---
 
-<article class:list={['sector-card', sector.feature && 'sc-wide']} style={`--c: ${sector.color};`}>
-  <div class="sc-rail">
-    <span class="sc-pct">{sector.weight}<small>%</small></span>
-    <span class:list={['sc-badge', `sc-${sector.conviction}`]}>{sector.conviction}</span>
+<article class:list={['sector', sector.feature && 'is-wide']} style={`--c: ${sector.color}`}>
+  <div class="sector-head">
+    <b class="sector-pct">{sector.weight}<small>%</small></b>
+    <div>
+      <h4>{sector.name}</h4>
+      <span class:list={['conviction', sector.conviction === 'core' && 'is-core']}>
+        {convictionLabel[sector.conviction]}
+      </span>
+    </div>
   </div>
-
-  <div class="sc-body">
-    <h4 class="sc-name">{sector.name}</h4>
-    <p class="sc-thesis">{sector.thesis}</p>
-    {
-      !sector.feature && (
-        <div class="sc-logos">
-          {sector.holdings.map((holding) => (
-            <HoldingIcon holding={holding} />
-          ))}
-        </div>
-      )
-    }
+  <p>{sector.thesis}</p>
+  <div class="holdings">
+    {sector.holdings.map((holding) => <HoldingIcon holding={holding} />)}
   </div>
-
-  {
-    sector.feature && (
-      <div class="sc-logos">
-        {sector.holdings.map((holding) => (
-          <HoldingIcon holding={holding} />
-        ))}
-      </div>
-    )
-  }
 </article>

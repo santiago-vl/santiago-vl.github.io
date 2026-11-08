@@ -1,100 +1,20 @@
 ---
-import { stackGroups, stackIntro } from '../data/stack';
+import SectionHead from './SectionHead.astro';
 ---
 
-<div class="about-bento">
-  <div class="about-top">
-    <article class="bento bento--main">
-      <div class="bento-main-header">
-        <span class="bento-eyebrow">// manager · senior software engineer</span>
-        <span class="bento-status-line">
-          <span class="status-dot" aria-hidden="true"></span>
-          <span class="bsl-text">
-            currently at
-            <a
-              href="https://diverger.ai/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="bento-link"
-            >
-              Diverger
-            </a>
-          </span>
-        </span>
-      </div>
-
-      <p class="bento-lead">Software engineer from the University of A Coruña.</p>
-
-      <p class="bento-body">
-        With over 9 years of experience, I manage an engineering team at
-        <a href="https://diverger.ai/" target="_blank" rel="noopener noreferrer" class="bento-link"
-          >Diverger</a
-        >, working on-site at
-        <a
-          href="https://www.inditex.com/itxcomweb/es/es/home"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="bento-link">Inditex</a
-        >, where I design and build <span class="hl">scalable microservices</span> around
-        <span class="hl">Domain-Driven Design</span>. I care deeply about <span class="hl"
-          >clean code</span
-        >,
-        <span class="hl">software craftsmanship</span> and code quality through
-        <span class="hl">SOLID principles</span> — overseeing technical decisions and delivery,
-        <span class="hl">mentoring</span> junior and mid-level engineers, and promoting best practices
-        across the team. In recent years I've developed a strong interest in <span class="hl"
-          >AI</span
-        >
-        and its integration into real-world systems, and I'm continually learning in that space.
-      </p>
-
-      <div class="bento-quickfacts">
-        <span class="qf"><span class="qf-key">loc</span><span class="qf-val">A Coruña</span></span>
-        <span class="qf"><span class="qf-key">exp</span><span class="qf-val">9+ years</span></span>
-        <span class="qf"
-          ><span class="qf-key">lang</span><span class="qf-val">Java (my favourite)</span></span
-        >
-      </div>
-    </article>
-
-    <article class="bento bento--code">
-      <div class="code-titlebar">
-        <span class="code-dot code-dot-r"></span>
-        <span class="code-dot code-dot-y"></span>
-        <span class="code-dot code-dot-g"></span>
-        <span class="code-filename">principles.ts</span>
-      </div>
-      <pre
-        class="code-block"><code><span class="c-kw">export const</span> <span class="c-var">me</span> = &lbrace;
-  <span class="c-prop">cleanCode</span>:  <span class="c-str">"non-negotiable"</span>,
-  <span class="c-prop">ddd</span>:        <span class="c-str">"where it fits"</span>,
-  <span class="c-prop">simplicity</span>: <span class="c-str">"the default"</span>,
-  <span class="c-prop">ai</span>:         <span class="c-str">"integrated, not bolted on"</span>,
-  <span class="c-prop">mentoring</span>:  <span class="c-str">"compounds quietly"</span>,
-&rbrace;<span class="c-op">;</span></code></pre>
-    </article>
+<section id="about" class="section">
+  <div class="wrap about">
+    <SectionHead eyebrow="Universidade da Coruña · Ingeniería del software">
+      Código limpio, <em>equipos</em> que crecen
+    </SectionHead>
+    <p>
+      Más de 9 años construyendo software. Gestiono un equipo en <b>Diverger</b> trabajando on-site
+      en <b>Inditex</b>, donde diseño <b>microservicios escalables</b> alrededor de <b>DDD</b>.
+    </p>
+    <p>
+      Superviso decisiones técnicas y entregas, hago <b>mentoring</b> a perfiles junior y mid, y empujo
+      <b>SOLID</b> y el oficio bien hecho. Mi tiempo libre se lo lleva sobre todo la <b>IA aplicada</b> a
+      sistemas reales.
+    </p>
   </div>
-
-  <article class="bento bento--ai">
-    <div class="building-header">
-      <span class="bento-eyebrow">// building with</span>
-      <p class="building-intro">{stackIntro}</p>
-    </div>
-    <div class="building-groups">
-      {
-        stackGroups.map((group) => (
-          <div class="building-group">
-            <span class:list={['bg-label', group.accent === 'ai' && 'bg-label-ai']}>
-              {group.label}
-            </span>
-            <div class="bg-tags">
-              {group.items.map((item) => (
-                <span class:list={['bg-tag', group.accent === 'ai' && 'bg-tag-ai']}>{item}</span>
-              ))}
-            </div>
-          </div>
-        ))
-      }
-    </div>
-  </article>
-</div>
+</section>

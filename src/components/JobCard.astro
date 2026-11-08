@@ -1,0 +1,36 @@
+---
+import type { Job } from '../data/experience';
+import { formatElapsed } from '../scripts/work-duration';
+
+interface Props {
+  job: Job;
+  client?: boolean;
+}
+
+const { job, client = false } = Astro.props;
+const duration = job.startDate ? formatElapsed(job.startDate) : job.duration;
+---
+
+<a
+  class:list={['job', job.startDate && 'is-current', client && 'is-client']}
+  href={job.href}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <img src={job.logo} alt={job.company} width="64" height="64" loading="lazy" />
+  <div class="job-body">
+    <h3>{job.role}</h3>
+    <span class="job-company">{job.company}</span>
+    <span class="job-period">
+      {job.period}{
+        duration && (
+          <>
+            {' · '}
+            <span data-start-date={job.startDate}>{duration}</span>
+          </>
+        )
+      }
+    </span>
+    {job.note && <span class="note">{job.note}</span>}
+  </div>
+</a>

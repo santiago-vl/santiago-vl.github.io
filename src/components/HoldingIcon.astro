@@ -8,15 +8,10 @@ interface Props {
 const { holding } = Astro.props;
 ---
 
-<span class="cv-logo-wrap">
-  <img
-    class:list={['cv-logo', holding.plate && 'cv-logo-fav']}
-    src={holding.icon}
-    alt={holding.name}
-    loading="lazy"
-  />
-  <div class="cv-tooltip">
-    <span class="cv-tt-name">{holding.name}</span>
-    {holding.isin && <span class="cv-tt-isin">{holding.isin}</span>}
-  </div>
+<span class="holding">
+  <img class:list={[holding.plate && 'is-plate']} src={holding.icon} alt={holding.name} loading="lazy" />
+  <span class="holding-tip">
+    <span class="holding-name">{holding.name}</span>
+    {holding.isin && <span class="holding-isin">{holding.isin}</span>}
+  </span>
 </span>

@@ -1,99 +1,93 @@
-export type TagKind = 'ai' | 'arch' | 'tech';
+export type ProjectStatus = 'live' | 'upcoming' | 'private';
+
+export type ProjectMedia =
+  | { readonly kind: 'screenshot'; readonly src: string; readonly alt: string }
+  | { readonly kind: 'restricted' };
 
 export interface ProjectTag {
   readonly label: string;
-  readonly kind: TagKind;
+  readonly ai?: boolean;
 }
-
-export interface ProjectStatus {
-  readonly label: string;
-  readonly tone: 'live' | 'upcoming';
-}
-
-export type ProjectMedia =
-  | { readonly kind: 'photo'; readonly class: string }
-  | { readonly kind: 'generated'; readonly class: string };
 
 export interface Project {
   readonly name: string;
   readonly description: string;
   readonly href?: string;
-  readonly visibility: 'Public' | 'Private';
   readonly status: ProjectStatus;
+  readonly color: string;
   readonly media: ProjectMedia;
   readonly tags: readonly ProjectTag[];
 }
 
+export const statusLabel: Record<ProjectStatus, string> = {
+  live: '● Live',
+  upcoming: 'Próximamente',
+  private: 'Privado',
+};
+
 export const projects: readonly Project[] = [
   {
     name: 'Corunova',
-    href: 'https://corunova.vercel.app/',
-    visibility: 'Public',
-    status: { label: 'Live', tone: 'live' },
-    media: { kind: 'photo', class: 'corunova-image' },
+    href: 'https://corunova.vercel.app/landing',
+    status: 'live',
+    color: '#ffb800',
+    media: { kind: 'screenshot', src: '/assets/projects/corunova.jpg', alt: 'Landing de Corunova' },
     description:
-      'Live wall of new-construction housing across the A Coruña metropolitan area (9 municipalities). ' +
-      'Discovers promotions from search + web scraping, classifies them by phase and municipality using an LLM, ' +
-      'and surfaces everything in a filterable wall.',
+      'Obra nueva, segunda mano, garajes y subastas de la comarca de A Coruña en un mapa. ' +
+      'Un LLM clasifica cada promoción por fase y municipio.',
     tags: [
-      { label: 'DDD', kind: 'arch' },
-      { label: 'Python', kind: 'tech' },
-      { label: 'Public-data scrapers', kind: 'tech' },
-      { label: 'Gemini 2.5 Flash', kind: 'ai' },
-      { label: 'LLM classification', kind: 'ai' },
-    ],
-  },
-  {
-    name: 'IntelliTrade',
-    href: 'https://intellitrade-copilot-web.vercel.app/',
-    visibility: 'Public',
-    status: { label: 'Upcoming Release', tone: 'upcoming' },
-    media: { kind: 'photo', class: 'intellitrade-image' },
-    description:
-      'Macro-driven investment intelligence platform. A quantitative core, a RAG context ' +
-      'engine over financial sources, and a grounded copilot that answers investment ' +
-      'questions with explicit citations.',
-    tags: [
-      { label: 'Agentic RAG', kind: 'ai' },
-      { label: 'Grounded LLM', kind: 'ai' },
-      { label: 'Gemini 2.5 Flash', kind: 'ai' },
-      { label: 'DDD', kind: 'arch' },
-      { label: 'Microservices', kind: 'arch' },
-      { label: 'Python', kind: 'tech' },
-      { label: 'pgvector', kind: 'tech' },
+      { label: 'DDD' },
+      { label: 'Python' },
+      { label: 'Scrapers públicos' },
+      { label: 'Gemini 2.5 Flash', ai: true },
+      { label: 'Clasificación LLM', ai: true },
     ],
   },
   {
     name: 'tuber.ia',
-    visibility: 'Private',
-    status: { label: 'Upcoming Release', tone: 'upcoming' },
-    media: { kind: 'photo', class: 'tuber-ia-image' },
+    href: 'https://tuber-ia-pulse.vercel.app/',
+    status: 'upcoming',
+    color: '#ff1744',
+    media: { kind: 'screenshot', src: '/assets/projects/tuberia.jpg', alt: 'Portada de tuber.ia' },
     description:
-      'An AI-powered service that transcribes economic YouTube videos and processes them ' +
-      'with LLM to extract key insights.',
+      'Transcribe los vídeos de economía de los expertos que sigues y resume qué esperan ' +
+      'del mercado. Para escuchar o ver en el mapa.',
     tags: [
-      { label: 'Gemini 2.5 Flash', kind: 'ai' },
-      { label: 'Whisper STT', kind: 'ai' },
-      { label: 'Self-hosted Ollama', kind: 'ai' },
-      { label: 'DDD', kind: 'arch' },
-      { label: 'Python', kind: 'tech' },
+      { label: 'Gemini 2.5 Flash', ai: true },
+      { label: 'Whisper STT', ai: true },
+      { label: 'Ollama', ai: true },
+      { label: 'DDD' },
+      { label: 'Python' },
+    ],
+  },
+  {
+    name: 'IntelliTrade',
+    status: 'private',
+    color: '#f2a93b',
+    media: { kind: 'restricted' },
+    description:
+      'Inteligencia inversora guiada por macro: núcleo cuantitativo, RAG sobre fuentes ' +
+      'financieras y un copiloto que cita sus fuentes.',
+    tags: [
+      { label: 'RAG agéntico', ai: true },
+      { label: 'Grounded LLM', ai: true },
+      { label: 'Microservicios' },
+      { label: 'pgvector' },
     ],
   },
   {
     name: 'Opositana',
-    href: 'https://opositana-web.vercel.app/dashboard',
-    visibility: 'Public',
-    status: { label: 'Upcoming Release', tone: 'upcoming' },
-    media: { kind: 'generated', class: 'opositana-card' },
+    status: 'private',
+    color: '#6d6bff',
+    media: { kind: 'restricted' },
     description:
-      'AI-powered companion for candidates of Spanish public sector exams. Personalised ' +
-      'discovery, anti-burnout coaching, study planner that re-adjusts on the fly, and ' +
-      'real-time alerts on official call changes.',
+      'Compañera con IA para opositores: plan de estudio que se reajusta solo, coaching ' +
+      'anti-burnout y avisos de cambios oficiales.',
     tags: [
-      { label: 'Gemini 2.5 Flash', kind: 'ai' },
-      { label: 'AI test generation', kind: 'ai' },
-      { label: 'DDD', kind: 'arch' },
-      { label: 'Next.js · NestJS', kind: 'tech' },
+      { label: 'Gemini 2.5 Flash', ai: true },
+      { label: 'Generación de tests', ai: true },
+      { label: 'DDD' },
+      { label: 'Next.js · NestJS' },
     ],
   },
 ];

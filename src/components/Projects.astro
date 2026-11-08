@@ -1,8 +1,21 @@
 ---
 import { projects } from '../data/projects';
+import SectionHead from './SectionHead.astro';
 import ProjectCard from './ProjectCard.astro';
+
+const letters = 'ABCDEFGH';
 ---
 
-<div class="projects-carousel">
-  {projects.map((project) => <ProjectCard project={project} />)}
-</div>
+<section id="projects" class="section">
+  <div class="wrap">
+    <SectionHead
+      eyebrow="Construidos en mi tiempo libre"
+      lead="Cuatro productos propios, cada uno con su propia identidad. Todos con un LLM en el centro haciendo trabajo real."
+    >
+      Proyectos <em>personales</em>
+    </SectionHead>
+    <div class="insets">
+      {projects.map((project, i) => <ProjectCard project={project} letter={letters[i] ?? ''} />)}
+    </div>
+  </div>
+</section>

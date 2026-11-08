@@ -1,6 +1,4 @@
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-export function formatOngoingDuration(startDate: string, now: Date = new Date()): string {
+export function formatElapsed(startDate: string, now: Date = new Date()): string {
   const [year, month] = startDate.split('-').map(Number);
   if (!year || !month) return '';
 
@@ -11,17 +9,17 @@ export function formatOngoingDuration(startDate: string, now: Date = new Date())
     months += 12;
   }
 
-  const parts = [
+  return [
     years > 0 ? `${years} año${years > 1 ? 's' : ''}` : '',
     months > 0 ? `${months} mes${months > 1 ? 'es' : ''}` : '',
-  ].filter(Boolean);
-
-  return `${MONTHS[month - 1]}. ${year} - Present · ${parts.join(' ')}`;
+  ]
+    .filter(Boolean)
+    .join(' ');
 }
 
 export function initWorkDurations(): void {
-  document.querySelectorAll<HTMLElement>('.work-duration[data-start-date]').forEach((el) => {
+  document.querySelectorAll<HTMLElement>('[data-start-date]').forEach((el) => {
     const start = el.dataset.startDate;
-    if (start) el.textContent = formatOngoingDuration(start);
+    if (start) el.textContent = formatElapsed(start);
   });
 }

@@ -1,54 +1,40 @@
 ---
 import { sectors, brands, portfolioCopy } from '../data/portfolio';
 import SectorCard from './SectorCard.astro';
+
+const byWeight = [...sectors].sort((a, b) => b.weight - a.weight);
 ---
 
-<div class="hobby-deep-dive">
-  <div class="portfolio-block">
-    <div class="deep-dive-header">
-      <span class="hobbies-eyebrow">{portfolioCopy.eyebrow}</span>
-      <h3 class="deep-dive-title">{portfolioCopy.title}</h3>
-      <p class="deep-dive-sub">{portfolioCopy.subtitle}</p>
+<div class="book">
+  <div class="book-head">
+    <div>
+      <span class="mono">{portfolioCopy.eyebrow}</span>
+      <h3>{portfolioCopy.title}</h3>
     </div>
-
-    <div class="alloc-bar" aria-label="Portfolio allocation by theme">
-      {
-        sectors.map((sector) => (
-          <span
-            class="alloc-seg"
-            style={`--w: ${sector.weight}%; --c: ${sector.color};`}
-            title={`${sector.name} ${sector.weight}%`}
-          >
-            <i>{sector.weight}%</i>
-          </span>
-        ))
-      }
-    </div>
-    <ul class="alloc-legend" aria-label="Portfolio allocation legend">
-      {
-        sectors.map((sector) => (
-          <li style={`--c: ${sector.color};`}>
-            <span class="alloc-key" aria-hidden="true" />
-            <span>{sector.barLabel}</span>
-            <span class="alloc-weight">{sector.weight}%</span>
-          </li>
-        ))
-      }
-    </ul>
+    <p>{portfolioCopy.subtitle}</p>
   </div>
 
-  <div class="themes-section">
-    <div class="sector-grid">
-      {sectors.map((sector) => <SectorCard sector={sector} />)}
-    </div>
-
-    <div class="logo-carousel" aria-label="Brands in my portfolio">
-      <div class="logo-track">
-        {brands.map((brand) => <img src={brand.src} alt={brand.alt} class="logo-item" />)}
-        {brands.map((brand) => <img src={brand.src} alt="" class="logo-item" aria-hidden="true" />)}
-      </div>
-    </div>
-
-    <p class="rp-note">{portfolioCopy.note}</p>
+  <div class="alloc" role="img" aria-label="Asignación por sectores">
+    {
+      byWeight.map((sector) => (
+        <span
+          style={`--c: ${sector.color}; --w: ${sector.weight}`}
+          title={`${sector.name} ${sector.weight}%`}
+        />
+      ))
+    }
   </div>
+
+  <div class="sectors">
+    {sectors.map((sector) => <SectorCard sector={sector} />)}
+  </div>
+
+  <div class="marquee" aria-label="Marcas en mi cartera">
+    <div class="marquee-track">
+      {brands.map((brand) => <img src={brand.src} alt={brand.alt} loading="lazy" />)}
+      {brands.map((brand) => <img src={brand.src} alt="" aria-hidden="true" loading="lazy" />)}
+    </div>
+  </div>
+
+  <span class="mono">{portfolioCopy.note}</span>
 </div>

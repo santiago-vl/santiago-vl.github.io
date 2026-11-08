@@ -9,7 +9,6 @@ export interface Holding {
 
 export interface Sector {
   readonly name: string;
-  readonly barLabel: string;
   readonly weight: number;
   readonly color: string;
   readonly conviction: Conviction;
@@ -24,10 +23,11 @@ export interface Brand {
 }
 
 export const portfolioCopy = {
-  eyebrow: '// portfolio',
-  title: "How I'm positioned",
-  subtitle: 'My long-term capital, spread across high-conviction themes.',
-  note: 'Directional weights, not financial advice — a long-term, conviction-weighted book of 38 positions across eight themes.',
+  eyebrow: 'Inversión · cómo estoy posicionado',
+  title: '38 posiciones, 8 temas',
+  subtitle:
+    'Capital a largo plazo, ponderado por convicción. Pasa el cursor por un logo para ver su ISIN y copiarlo.',
+  note: 'Pesos orientativos. No es asesoramiento financiero.',
 } as const;
 
 const c = (name: string) => `/assets/companies/${name}`;
@@ -35,7 +35,6 @@ const c = (name: string) => `/assets/companies/${name}`;
 export const sectors: readonly Sector[] = [
   {
     name: 'AI & Semiconductors',
-    barLabel: 'AI',
     weight: 26,
     color: '#3B82F6',
     conviction: 'core',
@@ -55,7 +54,6 @@ export const sectors: readonly Sector[] = [
   },
   {
     name: 'Defence & Aerospace',
-    barLabel: 'Defence',
     weight: 18,
     color: '#8B5CF6',
     conviction: 'core',
@@ -71,7 +69,6 @@ export const sectors: readonly Sector[] = [
   },
   {
     name: 'Energy, water & Nuclear',
-    barLabel: 'Energy',
     weight: 10,
     color: '#06B6D4',
     conviction: 'tactical',
@@ -87,7 +84,6 @@ export const sectors: readonly Sector[] = [
   },
   {
     name: 'Healthcare innovation',
-    barLabel: 'Health',
     weight: 10,
     color: '#10B981',
     conviction: 'core',
@@ -101,7 +97,6 @@ export const sectors: readonly Sector[] = [
   },
   {
     name: 'Robotics, Automation & Mobility',
-    barLabel: 'Robotics',
     weight: 8,
     color: '#F97316',
     conviction: 'tactical',
@@ -114,7 +109,6 @@ export const sectors: readonly Sector[] = [
   },
   {
     name: 'Commodities & crypto',
-    barLabel: 'Commodities',
     weight: 9,
     color: '#F59E0B',
     conviction: 'hedge',
@@ -128,7 +122,6 @@ export const sectors: readonly Sector[] = [
   },
   {
     name: 'Cybersecurity',
-    barLabel: 'Cyber',
     weight: 5,
     color: '#EC4899',
     conviction: 'tactical',
@@ -140,7 +133,6 @@ export const sectors: readonly Sector[] = [
   },
   {
     name: 'Core, financials & compounders',
-    barLabel: 'Core',
     weight: 14,
     color: '#64748B',
     conviction: 'core',

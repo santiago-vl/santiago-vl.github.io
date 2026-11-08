@@ -1,38 +1,34 @@
 export interface StackGroup {
   readonly label: string;
-  readonly accent?: 'ai';
+  readonly accent?: boolean;
   readonly items: readonly string[];
 }
 
-export const stackIntro =
-  "The tools and techniques I work with day to day. Lately I'm spending a good chunk " +
-  'of my time learning and building with AI.';
-
 export const stackGroups: readonly StackGroup[] = [
   {
-    label: 'AI & LLMs',
-    accent: 'ai',
+    label: 'IA y LLMs',
+    accent: true,
     items: [
+      'Prompt engineering',
       'RAG',
       'Agents',
       'MCP',
       'Embeddings',
-      'Prompt engineering',
       'Prompt eval',
-      'Gemini',
-      'OpenAI',
-      'Anthropic',
+      'API Gemini',
+      'API Anthropic',
+      'API OpenAI',
       'Ollama',
       'pgvector',
     ],
   },
   {
-    label: 'Engineering · most used',
+    label: 'Ingeniería',
     items: [
       'Java',
       'Python',
       'Spring Boot',
-      'Microservices architecture',
+      'Microservicios',
       'DDD',
       'MongoDB',
       'Kafka',

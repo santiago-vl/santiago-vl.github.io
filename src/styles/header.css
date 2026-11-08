@@ -1,96 +1,46 @@
 .site-header {
-  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--paper) 85%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
 }
 
-.site-header__inner {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-}
-
-.identity {
+.site-header .wrap {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 24px;
+  padding-block: 12px;
 }
 
-.identity__avatar {
-  flex-shrink: 0;
-  width: 8rem;
-  height: 8rem;
-  border-radius: 50%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.identity__name {
-  color: var(--color-text-primary);
+.site-mark {
+  font-family: var(--serif);
+  font-style: italic;
   font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.015em;
+  line-height: 1;
+  text-decoration: none;
 }
 
-.identity__role {
-  color: var(--color-text-secondary);
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.5;
-}
-
-.socials {
+.site-nav {
   display: flex;
-  align-items: center;
-  gap: 1.75rem;
-  padding-top: 1rem;
-  color: var(--color-text-primary);
-  font-size: 1.5rem;
+  gap: clamp(14px, 2.6vw, 30px);
+  margin-left: auto;
 }
 
-.socials a {
-  display: inline-flex;
-  transition: color 0.2s ease;
+.site-nav a {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.2s;
 }
 
-.socials a:hover {
-  color: #60a5fa;
+.site-nav a:hover {
+  color: var(--ink);
 }
 
-.socials svg {
-  width: 1em;
-  height: 1em;
-  fill: currentColor;
-}
-
-@media (min-width: 640px) {
-  .identity {
-    gap: 1.5rem;
-  }
-
-  .identity__avatar {
-    width: 12rem;
-    height: 12rem;
-  }
-
-  .identity__name {
-    font-size: 2.25rem;
-  }
-
-  .identity__role {
-    font-size: 1.125rem;
-  }
-
-  .socials {
-    font-size: 1.875rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .site-header__inner {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+@media (max-width: 560px) {
+  .site-nav a:nth-child(n + 3) {
+    display: none;
   }
 }

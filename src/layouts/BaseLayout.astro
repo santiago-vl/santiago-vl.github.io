@@ -3,15 +3,15 @@ import { site } from '../data/site';
 
 import '../styles/tokens.css';
 import '../styles/base.css';
+import '../styles/section.css';
 import '../styles/header.css';
-import '../styles/nav.css';
-import '../styles/assets.css';
+import '../styles/hero.css';
+import '../styles/skills.css';
 import '../styles/projects.css';
-import '../styles/reveal.css';
 import '../styles/work.css';
 import '../styles/about.css';
-import '../styles/hobbies.css';
-import '../styles/sections.css';
+import '../styles/off-hours.css';
+import '../styles/contact.css';
 
 interface Props {
   title?: string;
@@ -21,15 +21,18 @@ interface Props {
 const { title = site.title, description = site.description } = Astro.props;
 const fontHref =
   'https://fonts.googleapis.com/css2?display=swap' +
-  '&family=Manrope:wght@400;500;700;800&family=Noto+Sans:wght@400;500;700;900';
+  '&family=Instrument+Serif:ital@0;1' +
+  '&family=Geist:wght@400;500;600' +
+  '&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -44,20 +47,14 @@ const fontHref =
     <meta name="generator" content={Astro.generator} />
   </head>
   <body>
-    <div class="page">
-      <div class="layout-container">
-        <slot />
-      </div>
-    </div>
+    <slot />
 
     <script>
-      import { initReveal } from '../scripts/reveal';
-      import { initNav } from '../scripts/nav';
       import { initWorkDurations } from '../scripts/work-duration';
+      import { initCopyEmail } from '../scripts/copy-email';
 
       initWorkDurations();
-      initReveal();
-      initNav();
+      initCopyEmail();
     </script>
   </body>
 </html>

@@ -1,0 +1,31 @@
+.section {
+  padding-block: clamp(80px, 11vw, 150px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.section-head {
+  display: grid;
+  gap: 10px;
+  max-width: 760px;
+  margin-bottom: clamp(40px, 6vw, 72px);
+}
+
+.section-head h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.section-head h2 em {
+  color: var(--signal);
+}
+
+.section-head p {
+  margin: 0;
+  max-width: 52ch;
+  color: var(--ink-soft);
+}

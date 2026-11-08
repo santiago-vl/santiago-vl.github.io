@@ -1,0 +1,28 @@
+---
+import { stackGroups } from '../data/stack';
+---
+
+<section id="skills" class="skills-section">
+  <div class="wrap skills">
+    <div class="skills-head">
+      <span class="mono">Skills</span>
+      <h2>Con lo que <em>trabajo</em></h2>
+    </div>
+    <dl class="skills-list">
+      {
+        stackGroups.map((group) => (
+          <div class="skill-row">
+            <dt class="mono">{group.label}</dt>
+            <dd>
+              <ul class:list={['chips', group.accent && 'accent']}>
+                {group.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>

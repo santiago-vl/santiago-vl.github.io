@@ -1,0 +1,33 @@
+---
+import { site } from '../data/site';
+---
+
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="hero-role mono up">{site.role}</span>
+      <h1 class="up d1">{site.firstName} <em>{site.lastName}</em></h1>
+      <p class="hero-intro up d2" set:html={site.intro} />
+      <dl class="hero-facts up d2">
+        {
+          site.facts.map((fact) => (
+            <div>
+              <dt>{fact.label}</dt>
+              <dd>{fact.live ? <span class="live">{fact.value}</span> : fact.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+
+    <figure class="portrait up d1">
+      <div class="portrait-frame graduated">
+        <img src={site.avatar} alt={`Retrato de ${site.name}`} width="1130" height="1170" />
+      </div>
+      <figcaption>
+        <span class="mono">{site.location}</span>
+        <span class="note">{site.university}</span>
+      </figcaption>
+    </figure>
+  </div>
+</div>
