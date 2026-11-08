@@ -31,9 +31,9 @@ export const pillars: readonly Pillar[] = [
       'cualquier otro código. Lo demuestro en mis propios productos.',
   },
   {
-    title: 'Liderazgo técnico',
+    title: 'Seniority',
     body:
-      'Superviso decisiones de arquitectura y entregas, y hago mentoring a perfiles junior ' +
-      'y mid para que el equipo suba de nivel.',
+      'Criterio para decidir qué construir y qué no, autonomía de principio a fin y ' +
+      'mentoring a perfiles junior y mid para que el equipo suba de nivel.',
   },
 ];
