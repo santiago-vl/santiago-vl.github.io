@@ -6,7 +6,6 @@ export interface Job {
   readonly period: string;
   readonly duration?: string;
   readonly startDate?: string;
-  readonly note?: string;
 }
 
 export const employers: readonly Job[] = [
@@ -43,6 +42,5 @@ export const clients: readonly Job[] = [
     href: 'https://www.inditex.com/itxcomweb/es/es/home',
     logo: '/assets/inditex_logo.webp',
     period: 'abr 2018 — dic 2025',
-    note: 'Mismo cliente con ambos empleadores',
   },
 ];
