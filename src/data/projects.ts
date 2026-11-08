@@ -48,7 +48,7 @@ export const projects: readonly Project[] = [
   {
     name: 'tuber.ia',
     href: 'https://tuber-ia-pulse.vercel.app/',
-    status: 'upcoming',
+    status: 'live',
     color: '#ff1744',
     media: { kind: 'screenshot', src: '/assets/projects/tuberia.jpg', alt: 'Portada de tuber.ia' },
     description:
