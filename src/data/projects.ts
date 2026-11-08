@@ -39,8 +39,10 @@ export const projects: readonly Project[] = [
       { label: 'DDD' },
       { label: 'Python' },
       { label: 'Scrapers públicos' },
+      { label: 'SQLite' },
       { label: 'Gemini 3.5 Flash-Lite', ai: true },
       { label: 'Clasificación LLM', ai: true },
+      { label: 'Codex CLI', ai: true },
     ],
   },
   {
@@ -56,8 +58,10 @@ export const projects: readonly Project[] = [
       { label: 'Gemini 3.5 Flash-Lite', ai: true },
       { label: 'Whisper STT', ai: true },
       { label: 'Ollama', ai: true },
+      { label: 'Codex CLI', ai: true },
       { label: 'DDD' },
       { label: 'Python' },
+      { label: 'SQLite' },
     ],
   },
   {
