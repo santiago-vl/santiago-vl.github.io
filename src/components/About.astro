@@ -1,20 +1,23 @@
 ---
+import { aboutCopy, pillars } from '../data/about';
 import SectionHead from './SectionHead.astro';
 ---
 
 <section id="about" class="section">
-  <div class="wrap about">
-    <SectionHead eyebrow="Universidade da Coruña · Ingeniería del software">
-      Código limpio, <em>equipos</em> que crecen
+  <div class="wrap">
+    <SectionHead eyebrow={aboutCopy.eyebrow}>
+      Sistemas que escalan porque están <em>bien modelados</em>
     </SectionHead>
-    <p>
-      Más de 9 años construyendo software. Gestiono un equipo en <b>Diverger</b> trabajando on-site
-      en <b>Inditex</b>, donde diseño <b>microservicios escalables</b> alrededor de <b>DDD</b>.
-    </p>
-    <p>
-      Superviso decisiones técnicas y entregas, hago <b>mentoring</b> a perfiles junior y mid, y empujo
-      <b>SOLID</b> y el oficio bien hecho. Mi tiempo libre se lo lleva sobre todo la <b>IA aplicada</b> a
-      sistemas reales.
-    </p>
+    <p class="about-lead" set:html={aboutCopy.lead} />
+    <div class="pillars">
+      {
+        pillars.map((pillar) => (
+          <article class="pillar">
+            <h3>{pillar.title}</h3>
+            <p>{pillar.body}</p>
+          </article>
+        ))
+      }
+    </div>
   </div>
 </section>

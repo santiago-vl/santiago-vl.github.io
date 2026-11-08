@@ -9,5 +9,15 @@ import { navItems } from '../data/navigation';
     <nav class="site-nav" aria-label="Secciones">
       {navItems.map((item) => <a href={`#${item.target}`}>{item.label}</a>)}
     </nav>
+    <div class="site-links">
+      <a class="site-link is-primary" href={`mailto:${site.email}`}>Email</a>
+      {
+        site.socials.map((social) => (
+          <a class="site-link" href={social.href} target="_blank" rel="noopener noreferrer">
+            {social.label} ↗
+          </a>
+        ))
+      }
+    </div>
   </div>
 </header>

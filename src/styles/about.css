@@ -1,15 +1,50 @@
-.about p {
-  max-width: 62ch;
-  margin: 0 0 18px;
-  font-size: 1.1rem;
+.about-lead {
+  max-width: 58ch;
+  margin: 0 0 clamp(40px, 5vw, 56px);
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  line-height: 1.55;
   color: var(--ink-soft);
 }
 
-.about p:last-child {
-  margin-bottom: 0;
-}
-
-.about b {
+.about-lead b {
   color: var(--ink);
   font-weight: 600;
+}
+
+.pillars {
+  display: grid;
+  gap: 0 48px;
+  border-top: 1px solid var(--ink);
+}
+
+@media (min-width: 760px) {
+  .pillars {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pillar {
+  display: grid;
+  gap: 8px;
+  padding-block: 24px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.pillar h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 2.6vw, 2rem);
+  line-height: 1.05;
+}
+
+.pillar:first-child h3,
+.pillar:nth-child(2) h3 {
+  color: var(--signal);
+}
+
+.pillar p {
+  max-width: 52ch;
+  margin: 0;
+  color: var(--ink-soft);
 }
