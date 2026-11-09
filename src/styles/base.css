@@ -162,30 +162,18 @@ button:focus-visible {
   }
 }
 
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .section-head,
-    .skill-row,
-    .inset,
-    .lane,
-    .pillar,
-    .surf,
-    .book-head,
-    .alloc,
-    .sector {
-      animation-name: reveal;
-      animation-duration: auto;
-      animation-timing-function: ease-out;
-      animation-fill-mode: both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 40%;
-    }
-  }
+.reveal-ready .reveal {
+  opacity: 0;
+}
+
+.reveal-ready .reveal.is-in {
+  opacity: 1;
+  animation: reveal 0.8s var(--ease-out) var(--reveal-delay, 0s) both;
 }
 
 @keyframes reveal {
   from {
     opacity: 0;
-    transform: translateY(32px);
+    translate: 0 32px;
   }
 }
