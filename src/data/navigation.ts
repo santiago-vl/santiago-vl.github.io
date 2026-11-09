@@ -5,8 +5,8 @@ export interface NavItem {
 
 export const navItems: readonly NavItem[] = [
   { label: 'Skills', target: 'skills' },
-  { label: 'Proyectos', target: 'projects' },
-  { label: 'Trayectoria', target: 'work' },
-  { label: 'Sobre mí', target: 'about' },
-  { label: 'Fuera del código', target: 'off-hours' },
+  { label: 'Projects', target: 'projects' },
+  { label: 'Career', target: 'work' },
+  { label: 'About', target: 'about' },
+  { label: 'Off the clock', target: 'off-hours' },
 ];

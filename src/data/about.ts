@@ -4,36 +4,36 @@ export interface Pillar {
 }
 
 export const aboutCopy = {
-  eyebrow: 'Sobre mí · Ingeniero de software por la Universidade da Coruña',
+  eyebrow: 'About · Software engineer, Universidade da Coruña',
   lead:
-    'Más de 9 años construyendo backend que vive en producción. Hoy dirijo un equipo en ' +
-    '<b>Diverger</b>, on-site en <b>Inditex</b>, diseñando microservicios para una de las ' +
-    'mayores empresas de moda del mundo.',
+    '9+ years building backend that lives in production. Today I lead a team at ' +
+    '<b>Diverger</b>, on-site at <b>Inditex</b>, designing microservices for one of the ' +
+    'largest fashion companies in the world.',
 } as const;
 
 export const pillars: readonly Pillar[] = [
   {
     title: 'Domain-Driven Design',
     body:
-      'Empiezo por el dominio: bounded contexts, agregados y un lenguaje común con negocio. ' +
-      'Cada servicio tiene límites claros y el sistema crece sin enredarse.',
+      'I start from the domain: bounded contexts, aggregates and a shared language with the ' +
+      'business. Every service has clear boundaries and the system grows without tangling.',
   },
   {
-    title: 'Calidad de software',
+    title: 'Software quality',
     body:
-      'Arquitectura hexagonal, principios SOLID y revisiones de código exigentes. ' +
-      'Calidad que se nota en producción, no solo en el repositorio.',
+      'Hexagonal architecture, SOLID principles and demanding code reviews. Quality you can ' +
+      'see in production, not just in the repository.',
   },
   {
-    title: 'IA aplicada',
+    title: 'Applied AI',
     body:
-      'Integro LLMs en sistemas reales con RAG, agentes y MCP, evaluando los prompts como ' +
-      'cualquier otro código. Lo demuestro en mis propios productos.',
+      'I build LLMs into real systems with RAG, agents and MCP, and evaluate prompts like any ' +
+      'other code. My own products are the proof.',
   },
   {
     title: 'Seniority',
     body:
-      'Criterio para decidir qué construir y qué no, autonomía de principio a fin y ' +
-      'mentoring a perfiles junior y mid para que el equipo suba de nivel.',
+      'Judgement on what to build and what not to, end-to-end ownership, and mentoring ' +
+      'junior and mid-level engineers so the whole team levels up.',
   },
 ];

@@ -10,8 +10,8 @@ export function formatElapsed(startDate: string, now: Date = new Date()): string
   }
 
   return [
-    years > 0 ? `${years} año${years > 1 ? 's' : ''}` : '',
-    months > 0 ? `${months} mes${months > 1 ? 'es' : ''}` : '',
+    years > 0 ? `${years} yr${years > 1 ? 's' : ''}` : '',
+    months > 0 ? `${months} mo${months > 1 ? 's' : ''}` : '',
   ]
     .filter(Boolean)
     .join(' ');

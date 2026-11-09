@@ -14,7 +14,7 @@ const byWeight = [...sectors].sort((a, b) => b.weight - a.weight);
     <p>{portfolioCopy.subtitle}</p>
   </div>
 
-  <div class="alloc" role="img" aria-label="Asignación por sectores">
+  <div class="alloc" role="img" aria-label="Allocation by sector">
     {
       byWeight.map((sector) => (
         <span
@@ -29,7 +29,7 @@ const byWeight = [...sectors].sort((a, b) => b.weight - a.weight);
     {sectors.map((sector) => <SectorCard sector={sector} />)}
   </div>
 
-  <div class="marquee" aria-label="Marcas en mi cartera">
+  <div class="marquee" aria-label="Brands in my portfolio">
     <div class="marquee-track">
       {brands.map((brand) => <img src={brand.src} alt={brand.alt} loading="lazy" />)}
       {brands.map((brand) => <img src={brand.src} alt="" aria-hidden="true" loading="lazy" />)}

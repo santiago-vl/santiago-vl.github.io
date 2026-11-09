@@ -32,20 +32,20 @@ export const site: Site = {
   lastName: 'Villaviciosa',
   initials: 'S. V.',
   role: 'Manager · Senior Software Engineer',
-  title: 'Santiago Villaviciosa — Manager y Senior Software Engineer',
+  title: 'Santiago Villaviciosa — Manager & Senior Software Engineer',
   description:
-    'Manager y Senior Software Engineer en A Coruña. Microservicios a escala con Domain-Driven ' +
-    'Design y productos con IA integrada en sistemas reales.',
+    'Manager & Senior Software Engineer in A Coruña. Microservices at scale with Domain-Driven ' +
+    'Design, and AI products built into real systems.',
   intro:
-    'Dirijo un equipo que diseña <b>microservicios a escala</b> con <b>Domain-Driven Design</b>. ' +
-    'Fuera de horas construyo <b>productos con IA</b> que convierten datos públicos en algo útil.',
+    'I lead a team designing <b>microservices at scale</b> with <b>Domain-Driven Design</b>. ' +
+    'After hours I build <b>AI products</b> that turn public data into something useful.',
   avatar: '/assets/profile.webp',
   location: 'A Coruña, Galicia',
   university: 'Universidade da Coruña',
   facts: [
-    { label: 'Ahora', value: 'Diverger · Inditex', live: true },
-    { label: 'Experiencia', value: '9+ años' },
-    { label: 'Productos IA', value: '4 lanzados' },
+    { label: 'Now', value: 'Diverger · Inditex', live: true },
+    { label: 'Experience', value: '9+ years' },
+    { label: 'AI products', value: '4 shipped' },
   ],
   email: 'santyswdev@gmail.com',
   socials: [

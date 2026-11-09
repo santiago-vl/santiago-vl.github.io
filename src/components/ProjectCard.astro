@@ -26,11 +26,11 @@ const host = project.href ? new URL(project.href).host : '';
         <span class="shot-go">{host} ↗</span>
       </a>
     ) : (
-      <div class="shot restricted" role="img" aria-label={`${project.name}: proyecto privado`}>
+      <div class="shot restricted" role="img" aria-label={`${project.name}: private project`}>
         <div class="restricted-inner">
-          <span class="mono">Zona restringida</span>
+          <span class="mono">Restricted area</span>
           <b>{project.name}</b>
-          <span class="mono">Acceso privado · en desarrollo</span>
+          <span class="mono">Private access · in development</span>
         </div>
       </div>
     )

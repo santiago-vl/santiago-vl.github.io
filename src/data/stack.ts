@@ -6,25 +6,25 @@ export interface StackGroup {
 
 export const stackGroups: readonly StackGroup[] = [
   {
-    label: 'IA y LLMs',
+    label: 'AI & LLMs',
     accent: true,
     items: [
-      'Sistemas RAG',
-      'Agentes y tool calling (MCP)',
-      'Evaluación de LLMs',
-      'Búsqueda semántica · pgvector',
+      'RAG systems',
+      'Agents & tool calling (MCP)',
+      'LLM evaluation',
+      'Semantic search · pgvector',
       'Prompt engineering',
-      'APIs Gemini · Anthropic · OpenAI',
-      'LLMs self-hosted · Ollama',
+      'Gemini · Anthropic · OpenAI APIs',
+      'Self-hosted LLMs · Ollama',
     ],
   },
   {
-    label: 'Ingeniería',
+    label: 'Engineering',
     items: [
       'Java',
       'Python',
       'Spring Boot',
-      'Microservicios',
+      'Microservices',
       'DDD',
       'MongoDB',
       'Kafka',

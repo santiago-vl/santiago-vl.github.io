@@ -23,11 +23,11 @@ export interface Brand {
 }
 
 export const portfolioCopy = {
-  eyebrow: 'Inversión · cómo estoy posicionado',
-  title: '38 posiciones, 8 temas',
+  eyebrow: 'Investing · how I\'m positioned',
+  title: '38 positions, 8 themes',
   subtitle:
-    'Capital a largo plazo, ponderado por convicción. Pasa el cursor por un logo para ver su ISIN y copiarlo.',
-  note: 'Pesos orientativos. No es asesoramiento financiero.',
+    'Long-term capital, weighted by conviction. Hover a logo to see its ISIN and copy it.',
+  note: 'Indicative weights. Not financial advice.',
 } as const;
 
 const c = (name: string) => `/assets/companies/${name}`;

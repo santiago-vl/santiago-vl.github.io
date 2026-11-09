@@ -6,16 +6,16 @@ import JobCard from './JobCard.astro';
 
 <section id="work" class="section">
   <div class="wrap">
-    <SectionHead eyebrow="Trayectoria · 2017 → hoy">Dónde he <em>trabajado</em></SectionHead>
+    <SectionHead eyebrow="Career · 2017 → today">Where I've <em>worked</em></SectionHead>
     <div class="work">
       <div class="lane">
-        <span class="lane-label mono">Empleador</span>
+        <span class="lane-label mono">Employer</span>
         <div class="lane-cards">
           {employers.map((job) => <JobCard job={job} />)}
         </div>
       </div>
       <div class="lane">
-        <span class="lane-label mono">Cliente · on-site</span>
+        <span class="lane-label mono">Client · on-site</span>
         <div class="lane-cards">
           {clients.map((job) => <JobCard job={job} client />)}
         </div>
