@@ -9,6 +9,9 @@ export const aboutCopy = {
     '9+ years building backend that lives in production. Today I lead a team at ' +
     '<b>Diverger</b>, on-site at <b>Inditex</b>, designing microservices for one of the ' +
     'largest fashion companies in the world.',
+  languages:
+    '<b>English · intermediate.</b> I communicate comfortably in everyday work situations ' +
+    'and in technical discussions.',
 } as const;
 
 export const pillars: readonly Pillar[] = [
