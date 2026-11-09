@@ -10,7 +10,9 @@ import { navItems } from '../data/navigation';
       {navItems.map((item) => <a href={`#${item.target}`}>{item.label}</a>)}
     </nav>
     <div class="site-links">
-      <a class="site-link is-primary" href={`mailto:${site.email}`}>Email</a>
+      <button class="site-link is-primary" type="button" data-copy-email={site.email} title={site.email}>
+        Copy email
+      </button>
       {
         site.socials.map((social) => (
           <a class="site-link" href={social.href} target="_blank" rel="noopener noreferrer">

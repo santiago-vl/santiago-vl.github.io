@@ -47,6 +47,10 @@
 }
 
 .site-link {
+  font-family: inherit;
+  cursor: pointer;
+  background: transparent;
+  color: inherit;
   padding: 5px 12px;
   border: 1px solid var(--ink);
   border-radius: 99px;
